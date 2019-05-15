@@ -1,0 +1,29 @@
+{
+  "steps": [
+    {
+      "id": "1",
+      "title": "Bienvenue voyageur",
+      "text": "exemple de texte",
+      "actions": [
+        {
+          "label": "Aller à droite",
+          "to": "2",
+          "money": 10,
+          "obj": "pelle",
+          "life": -5,
+          "effects":{
+            "obj": "pelle",
+            "life": -5
+          }
+        },
+        {
+          "label": "Aller à gauche",
+          "to": "3",
+          "need": {
+            "money": 5
+          }
+        }
+      ]
+    }
+  ]
+}
