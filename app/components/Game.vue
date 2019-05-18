@@ -3,12 +3,13 @@
     <router-link class="button" to="/">Go to Home</router-link>
     <h1>{{step.title}}</h1>
     <p>{{step.text}}</p>
+    <p>{{money}}</p>
     <button 
     class="button" 
     v-for="action in step.actions"
     :key="action.id"
     @click="doAction(action)"
-    >click for action</button>
+    >{{action.label}}</button>
   </div>
 </template>
 
@@ -20,7 +21,7 @@ export default {
   data() {
     return {
       step: this.getStep(),
-      count: countService.value()
+      money: moneyService.value()
     }
   },
   methods: {
@@ -29,8 +30,8 @@ export default {
     },
     doAction(action){
       console.log('action');
-      if (action.money){
-        moneyService.increment(10);
+      if (action.effects.money){
+        moneyService.increment(action.effects.money);
       }
       this.$router.push(action.to);
     },
@@ -40,7 +41,8 @@ export default {
   },
   watch: {
     '$route.params.id' (to, from){
-     this.step = this.getStep();
+      this.step = this.getStep();
+      this.money = moneyService.value()
     }
   }
 };

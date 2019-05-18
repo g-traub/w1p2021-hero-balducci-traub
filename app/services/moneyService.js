@@ -1,9 +1,9 @@
 class MoneyService {
   constructor() {
-    localStorage.getItem('money') ? this.count = parseInt(localStorage.getItem('money')) : this.count = 0 
+    localStorage.getItem('money') ? this.count = parseInt(localStorage.getItem('money')) : this.count = 10 
   }
   increment(quantity) {
-    this.count= this.count + quantity;
+    this.count = this.count + quantity;
     if (this.count<0){
       this.count = 0;
     }
