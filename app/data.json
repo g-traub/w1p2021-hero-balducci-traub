@@ -12,9 +12,18 @@
           "obj": "pelle",
           "life": -5,
           "effects":{
-            "obj": "pelle",
             "life": -5
+          },
+          "inventory":{
+            "money": 10,
+            "pelle": true,
+            "map": false
+          },
+          "allies":{
+            "homeless": true,
+            "mercenaries": false
           }
+          ,"need":3
         },
         {
           "label": "Aller à gauche",
@@ -24,6 +33,25 @@
           }
         }
       ]
+    }
+  ],
+  "losses": [
+    {
+      "id": "1",
+      "title": "Arrêté",
+      "text": "Vous avez été arrêté"
+    },
+    {
+      "id": "2",
+      "title": "Tué",
+      "text": "Vous avez été tué"
+    }
+  ],
+  "wins": [
+    {
+      "id": "1",
+      "title": "Gagné",
+      "text": "Vous avez réussi à faire sortir votre frère et à vous échapper avec lui"
     }
   ]
 }

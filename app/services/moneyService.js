@@ -1,4 +1,4 @@
-class CountService {
+class MoneyService {
   constructor() {
     localStorage.getItem('money') ? this.count = parseInt(localStorage.getItem('money')) : this.count = 0 
   }
@@ -13,7 +13,7 @@ class CountService {
   }
 }
 
-module.exports = new CountService();
+module.exports = new MoneyService();
 
 /* 
 Pour le localstorage et les objets 
