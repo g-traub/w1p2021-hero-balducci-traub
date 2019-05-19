@@ -1,0 +1,68 @@
+{
+  "steps": [
+    {
+      "id": "1",
+      "title": "Bienvenue voyageur",
+      "text": "exemple de texte",
+      "actions": [
+        {
+          "label": "Aller à droite",
+          "to": "2",
+          "money": 10,
+          "obj": "pelle",
+          "life": -5,
+          "effects":{
+            "life": -5,
+            "money": -5
+          },
+          "inventory":{
+            "money": 10,
+            "pelle": true,
+            "map": false
+          },
+          "allies":{
+            "homeless": true,
+            "mercenaries": false
+          }
+          ,"need":3
+        },
+        {
+          "label": "Aller à gauche",
+          "to": "3",
+          "need": {
+            "money": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "game2",
+      "text": "exemple de texte2",
+      "actions": [
+        {
+          "money": 10
+        }
+      ]
+    }
+  ],
+  "losses": [
+    {
+      "id": "1",
+      "title": "Arrêté",
+      "text": "Vous avez été arrêté"
+    },
+    {
+      "id": "2",
+      "title": "Tué",
+      "text": "Vous avez été tué"
+    }
+  ],
+  "wins": [
+    {
+      "id": "1",
+      "title": "Gagné",
+      "text": "Vous avez réussi à faire sortir votre frère et à vous échapper avec lui"
+    }
+  ]
+}
