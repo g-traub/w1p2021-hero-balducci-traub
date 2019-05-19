@@ -14,19 +14,67 @@
 </template>
 
 <script>
-import game from '../data.json';
+import game from '../exemple.json';
 import moneyService from '../services/moneyService';
+import attributesService from '../services/attributesService';
 
 export default {
   data() {
     return {
       step: this.getStep(),
-      money: moneyService.value()
+      money: moneyService.value(),
+      inventory: this.getInventory(),
+      allies: this.getAllies(),
+      milestones: this.getMilestones(),
+      attributes: attributesService.value()
     }
   },
   methods: {
     getStep(){
       return game.steps.find(step => step.id === this.$route.params.id)
+    },
+    getInventory(){
+      console.log('inventory');
+      if(localStorage.getItem('inventory')){
+        this.inventory = JSON.parse(localStorage.getItem('inventory'))
+      }
+      else {
+        this.inventory = {
+          citymap: false,
+          prisonmap: false,
+          lockpick: false,
+          disguise: false
+        }
+      }
+      return this.inventory
+    },
+    getAllies(){
+      console.log('allies');
+      if(localStorage.getItem('allies')){
+        this.allies = JSON.parse(localStorage.getItem('allies'))
+      }
+      else {
+        this.allies = {
+          homeless: false,
+          mercenaries: false,
+          guard: false
+        }
+      }
+      return this.allies
+    },
+    getMilestones(){
+      console.log('milestones');
+      if(localStorage.getItem('milestones')){
+        this.milestones = JSON.parse(localStorage.getItem('milestones'))
+      }
+      else {
+        this.milestones = {
+          foundPrison: false,
+          foundWayIn: false,
+          foundCellOpener: false
+        }
+      }
+      return this.milestones
     },
     doAction(action){
       console.log('action');
@@ -37,7 +85,10 @@ export default {
     },
     canDo(action){
       return !action.need.money || this.count >= action.need.money
-    } 
+    },
+    randomizeOutcome(percentage, caracName, carac){
+      return Math.random() < percentage + 0.5 * carac[caracName]
+    }
   },
   watch: {
     '$route.params.id' (to, from){

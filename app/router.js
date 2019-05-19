@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Home from './components/Home.vue';
+import CharacterCustomization from  './components/Character.vue';
 import Game from './components/Game.vue';
 import Lose from './components/Lose.vue';
 import Win from './components/Win.vue';
@@ -16,6 +17,11 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
+    },
+    {
+      path: '/character-customization',
+      name: 'character customization',
+      component: CharacterCustomization,
     },
     {
       path: '/game/:id',
