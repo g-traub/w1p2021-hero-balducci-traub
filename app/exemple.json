@@ -2,7 +2,7 @@
   "steps": [
     {
       "id": "1",
-      "title": "Bienvenue voyageur",
+      "title": "Bienvenue",
       "text": "exemple de texte",
       "actions": [
         {
@@ -15,16 +15,7 @@
             "life": -5,
             "money": -5
           },
-          "inventory":{
-            "money": 10,
-            "pelle": true,
-            "map": false
-          },
-          "allies":{
-            "homeless": true,
-            "mercenaries": false
-          }
-          ,"need":3
+          "need":3
         },
         {
           "label": "Aller à gauche",

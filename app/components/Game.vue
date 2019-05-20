@@ -21,6 +21,7 @@ import attributesService from '../services/attributesService';
 export default {
   data() {
     return {
+      name: localStorage.getItem('name'),
       step: this.getStep(),
       money: moneyService.value(),
       inventory: this.getInventory(),

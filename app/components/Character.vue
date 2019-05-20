@@ -1,19 +1,178 @@
 <template>
   <div class="big-header">
     <h1>Character</h1>
-    <br />
-    <router-link class="button" to="/game/1">Go to Page</router-link>
+    <br>
+    <div class="character__name">
+      <label for="name">Name : </label>
+      <input v-model="name" type="text" id="name" name="name" maxlength="32">
+    </div>
+    <div class="character__attributes">
+      <h2>Attributes</h2>
+      <h2>
+        Total:
+        <span>{{ total }}</span>
+      </h2>
+      <div>
+        <label for="strength">Strength</label>
+        <input
+          class="attribute"
+          :value="strength"
+          @input="(event) => handleChange('strength', event)"
+          type="range"
+          id="strength"
+          name="strength"
+          step="1"
+          min="0"
+          max="6"
+        >
+        <span>{{ strength }}</span>
+      </div>
+      <div>
+        <label for="charisma">Charisma</label>
+        <input
+          class="attribute"
+          :value="charisma"
+          @input="(event) => handleChange('charisma', event)"
+          type="range"
+          id="charisma"
+          name="charisma"
+          step="1"
+          min="0"
+          max="6"
+        >
+        <span>{{ charisma }}</span>
+      </div>
+      <div>
+        <label for="dexterity">Dexterity</label>
+        <input
+          class="attribute"
+          :value="dexterity"
+          @input="(event) => handleChange('dexterity', event)"
+          type="range"
+          id="dexterity"
+          name="dexterity"
+          step="1"
+          min="0"
+          max="6"
+        >
+        <span>{{ dexterity }}</span>
+      </div>
+      <div>
+        <label for="intelligence">Intelligence</label>
+        <input
+          class="attribute"
+          :value="intelligence"
+          @input="(event) => handleChange('intelligence', event)"
+          type="range"
+          id="intelligence"
+          name="intelligence"
+          step="1"
+          min="0"
+          max="6"
+        >
+        <span>{{ intelligence }}</span>
+      </div>
+      <div>
+        <label for="chance">Chance</label>
+        <input
+          class="attribute"
+          :value="chance"
+          @input="(event) => handleChange('chance', event)"
+          type="range"
+          id="chance"
+          name="chance"
+          step="1"
+          min="0"
+          max="6"
+        >
+        <span>{{ chance }}</span>
+      </div>
+    </div>
+    <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('/game/1')}" class="button" >Commencer votre aventure</button>
   </div>
 </template>
 
 <script>
-import attributesService from '../services/attributesService';
+import attributesService from "../services/attributesService";
 
 export default {
   data() {
     return {
-     attributes: attributesService.value(),
+      name: '',
+      strength: 0,
+      charisma: 0,
+      dexterity: 0,
+      intelligence: 0,
+      chance: 0,
+      total: 15,
+      attributes: attributesService.value()
     };
+  },
+  computed:{
+    attributesNodes: function (){
+      return document.querySelectorAll('.attribute')
+    }
+  },
+  methods: {
+    handleChange: function(field, event) {
+      if (this.total>0){
+        this[field] = event.target.value;
+        const total =
+          15 -
+          (parseInt(this.strength) +
+            parseInt(this.charisma) +
+            parseInt(this.dexterity) +
+            parseInt(this.intelligence) +
+            parseInt(this.chance));
+  
+        this.total = total;
+      }
+      else if (this.total<=0){
+        for (let node of this.attributesNodes){
+          if (node.value>this[node.name]){
+            node.value = this[node.name]
+          }
+          else if (node.value<this[node.name]){
+            this[field] = event.target.value;
+            const total =
+              15 -
+              (parseInt(this.strength) +
+                parseInt(this.charisma) +
+                parseInt(this.dexterity) +
+                parseInt(this.intelligence) +
+                parseInt(this.chance));
+      
+            this.total = total;
+          }
+        }
+      }
+    },
+    setAttributes: function(){
+      this.attributes = {
+        strength: this.strength, 
+        charisma: this.charisma,
+        dexterity:this.dexterity,
+        intelligence:this.intelligence,
+        chance:this.chance,
+      }
+      localStorage.setItem('attributes', JSON.stringify(this.attributes));
+      
+    },
+    setName: function (){
+      localStorage.setItem('name', this.name);
+    },
+    redirect: function(url){
+      this.$router.push(url);
+    }
   }
-};
+}
 </script>
+
+<style scoped>
+.inactive {
+  color: #c6c6c6;
+  cursor: initial;
+  background-color: #EEE;
+}
+</style>
+
