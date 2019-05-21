@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import game from '../exemple.json';
+import game from '../data.json';
 import moneyService from '../services/moneyService';
 import attributesService from '../services/attributesService';
 
@@ -77,9 +77,13 @@ export default {
       return this.milestones
     },
     doAction(action){
-      if (action.effects.money){
-        moneyService.increment(action.effects.money);
+      if (action.effects){
+        if (action.effects.money){
+          moneyService.increment(action.effects.money);
+        }
       }
+      console.log(this.step.id);
+      localStorage.setItem('savedStep', this.step.id);
       this.$router.push(action.to);
     },
     canDo(action){
@@ -88,6 +92,11 @@ export default {
     randomizeOutcome(percentage, caracName, carac){
       return Math.random() < percentage + 0.5 * carac[caracName]
     }
-  }
+  },
+  /* mounted(){
+    setTimeout(() =>{
+       this.$refs.audio.pause();
+    }, 3000);
+  } */
 };
 </script>
