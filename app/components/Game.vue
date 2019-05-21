@@ -1,5 +1,6 @@
 <template>
   <div class="big-header">
+    
     <router-link class="button" to="/">Go to Home</router-link>
     <h1>{{step.title}}</h1>
     <p>{{step.text}}</p>
@@ -22,7 +23,6 @@ export default {
   data() {
     return {
       name: localStorage.getItem('name'),
-      step: this.getStep(),
       money: moneyService.value(),
       inventory: this.getInventory(),
       allies: this.getAllies(),
@@ -30,12 +30,13 @@ export default {
       attributes: attributesService.value()
     }
   },
-  methods: {
-    getStep(){
+  computed: {
+    step: function () {
       return game.steps.find(step => step.id === this.$route.params.id)
-    },
+    }
+  },
+  methods: {
     getInventory(){
-      console.log('inventory');
       if(localStorage.getItem('inventory')){
         this.inventory = JSON.parse(localStorage.getItem('inventory'))
       }
@@ -50,7 +51,6 @@ export default {
       return this.inventory
     },
     getAllies(){
-      console.log('allies');
       if(localStorage.getItem('allies')){
         this.allies = JSON.parse(localStorage.getItem('allies'))
       }
@@ -64,7 +64,6 @@ export default {
       return this.allies
     },
     getMilestones(){
-      console.log('milestones');
       if(localStorage.getItem('milestones')){
         this.milestones = JSON.parse(localStorage.getItem('milestones'))
       }
@@ -78,7 +77,6 @@ export default {
       return this.milestones
     },
     doAction(action){
-      console.log('action');
       if (action.effects.money){
         moneyService.increment(action.effects.money);
       }
@@ -89,12 +87,6 @@ export default {
     },
     randomizeOutcome(percentage, caracName, carac){
       return Math.random() < percentage + 0.5 * carac[caracName]
-    }
-  },
-  watch: {
-    '$route.params.id' (to, from){
-      this.step = this.getStep();
-      this.money = moneyService.value()
     }
   }
 };

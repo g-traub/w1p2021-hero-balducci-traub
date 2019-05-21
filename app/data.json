@@ -4,7 +4,6 @@
 			"id": "1",
 			"place": "Tente",
 			"text": "Point de rendez-vous -> attendu toute la nuit son frère est pas là. Entend au loin des cris. ",
-			"background": "image12",
 			"actions": [
 				{
 					"label": "Rester",
