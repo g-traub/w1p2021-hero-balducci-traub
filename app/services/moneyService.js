@@ -3,7 +3,7 @@ class MoneyService {
     localStorage.getItem('money') ? this.money = parseInt(localStorage.getItem('money')) : this.money = 10 
   }
   increment(quantity) {
-    this.money = this.money + quantity;
+    this.money += quantity;
     if (this.money<0){
       this.money = 0;
     }

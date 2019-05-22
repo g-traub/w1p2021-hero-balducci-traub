@@ -19,15 +19,16 @@ import game from '../data.json';
 import moneyService from '../services/moneyService';
 import attributesService from '../services/attributesService';
 
+
 export default {
   data() {
     return {
       name: localStorage.getItem('name'),
-      money: moneyService.value(),
       inventory: this.getInventory(),
       allies: this.getAllies(),
       milestones: this.getMilestones(),
-      attributes: attributesService.value()
+      attributes: attributesService.value(),
+      money: moneyService.value()
     }
   },
   computed: {
@@ -80,15 +81,15 @@ export default {
       if (action.effects){
         if (action.effects.money){
           moneyService.increment(action.effects.money);
+          this.money = moneyService.value();
         }
       }
-      console.log(this.step.id);
       localStorage.setItem('savedStep', this.step.id);
       this.$router.push(action.to);
     },
-    canDo(action){
+/*     canDo(action){
       return !action.need.money || this.count >= action.need.money
-    },
+    }, */
     randomizeOutcome(percentage, caracName, carac){
       return Math.random() < percentage + 0.5 * carac[caracName]
     }

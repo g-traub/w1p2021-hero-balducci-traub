@@ -64,8 +64,13 @@
 				{
 					"label": "Accepter",
 					"to": "8",
-					"money": -1,
-					"ally": 1
+					"effects":{
+						"money": -1,
+						"ally": "homeless"
+					},
+					"need": {
+						"money": 1
+					}
 				},
 				{
 					"label": "Refuser ",
@@ -82,12 +87,14 @@
 			"actions": [
 				{
 					"label": "échec",
-					"to": "gameOver"
+					"to": "lose"
 				},
 				{
 					"label": "réussite",
 					"to": "9",
-					"money": 3
+					"effects":{
+						"money": -3
+					}
 				},
 				{
 					"label": "refuser",
