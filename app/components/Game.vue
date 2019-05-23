@@ -99,7 +99,7 @@ export default {
       this.$router.push(url);
     },
     randomizeOutcome(percentage, caracName, carac){
-      return Math.random() < percentage + 0.5 * parseInt(carac[caracName])
+      return Math.random() < percentage + 0.05 * parseInt(carac[caracName])
     },
     doAction(action){
       if(action.game){
@@ -109,24 +109,37 @@ export default {
         }
         console.log(count);
         let result = this.randomizeOutcome(action.gameDetails.percentage, action.gameDetails.caracName, attributesService.value());
-        if(result){
-          this.$refs[action.game][0].classList.add('true')
-        }
-        else{
-           this.$refs[action.game][0].classList.add('false')
-        }
+        this.$refs[action.game][0].classList.add(result);
         console.log(result);
+        localStorage.setItem('savedStep', action.gameDetails[result].to);
+        setTimeout(()=>this.redirect(action.gameDetails[result].to),3000);
+        for (let effectName in action.gameDetails[result].effects){
+          this.applyEffects(effectName, action.gameDetails[result].effects[effectName])
+        }
         return;
       }
-      if (action.effects){
-        if (action.effects.money){
-          moneyService.increment(action.effects.money);
-          this.money = moneyService.value();
+      else if(action.effects){
+        for (let effectName in action.effects){
+          this.applyEffects(effectName, action.effects[effectName])
         }
       }
       localStorage.setItem('savedStep', action.to);
       this.$router.push(action.to);
     },
+    applyEffects(effectName, effect){
+      console.log(effectName, effect);
+      if (effectName === 'money'){
+        console.log('yes');
+        moneyService.increment(effect);
+        this.money = moneyService.value();
+        localStorage.setItem('money', this.money);
+      } 
+      else {
+        this[effectName][effect] = true;
+        console.log(effectName);
+        localStorage.setItem(effectName , JSON.stringify(this[effectName]));
+      }
+    }
 /*     canDo(action){
       return !action.need.money || this.count >= action.need.money
     }, */
@@ -134,21 +147,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.tooltip::before{
-  display: flex;
-  color: #000;
-  font-size: 2rem;
-  justify-content: center;
-  align-items: center;
+.true::before, .false::before{
   content: '';
-  height: 30%;
-  width: 30%;
-  border: 1px solid red;
+  display: flex;
   position: absolute;
   right: 10%;
-  background: url('../assets/img/bulle.svg') center center no-repeat;
-
+  height: 30%;
+  width: 30%; 
 }
+.true::before{
+  background: url('../assets/img/reussite.gif') center center no-repeat;
+}
+.false::before{
+  background: url('../assets/img/echec.gif') center center no-repeat;
+}
+
 .viewGame{
   display: flex;
   justify-content: center;

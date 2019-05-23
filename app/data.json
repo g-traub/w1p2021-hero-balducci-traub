@@ -9,7 +9,10 @@
 			"actions": [
 				{
 					"label": "Rester",
-					"to": "2"
+					"to": "2",
+					"effects": {
+						"money": 2
+					}
 				},
 				{
 					"label": "Sortir",
@@ -169,11 +172,22 @@
 			"actions": [
 				{
 					"label": "Accepter de jouer",
-					"to": "14",
 					"game": true,
 					"gameDetails": {
 						"percentage": 0.5,
-						"caracName": "chance"
+						"caracName": "chance",
+						"true": {
+							"to": "15",
+							"effects": {
+								"inventory": "citymap"
+							}
+						},
+						"false": {
+							"to": "16",
+							"effects": {
+								"money": -3
+							}
+						}
 					}
 				},
 				{
