@@ -1,99 +1,107 @@
 <template>
-  <div class="big-header">
-    <h1>Character</h1>
-    <br>
-    <div class="character__name">
-      <label for="name">Name : </label>
-      <input v-model="name" type="text" id="name" name="name" maxlength="32">
+  <div class="viewGame">
+    <div class="elements">
+      <h1>Personnage</h1>
+      <br>
+      <div class="characters">
+        <div class="character__name">
+          <label for="name">Nom</label>
+          <input v-model="name" type="text" id="name" name="name" maxlength="32">
+        </div>
+        <div class="character__attributes">
+          <div class="character__attributes--title">
+            <h2>Caractéristiques</h2>
+            <h2>
+              Total:
+              <span>{{ total }}</span>
+            </h2>
+          </div>
+          <div>
+            <label for="strength">Force</label>
+            <input
+              class="attribute"
+              :value="strength"
+              @input="(event) => handleChange('strength', event)"
+              type="range"
+              id="strength"
+              name="strength"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ strength }}</span>
+          </div>
+          <div>
+            <label for="charisma">Charisme</label>
+            <input
+              class="attribute"
+              :value="charisma"
+              @input="(event) => handleChange('charisma', event)"
+              type="range"
+              id="charisma"
+              name="charisma"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ charisma }}</span>
+          </div>
+          <div>
+            <label for="dexterity">Dexterité</label>
+            <input
+              class="attribute"
+              :value="dexterity"
+              @input="(event) => handleChange('dexterity', event)"
+              type="range"
+              id="dexterity"
+              name="dexterity"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ dexterity }}</span>
+          </div>
+          <div>
+            <label for="intelligence">Intelligence</label>
+            <input
+              class="attribute"
+              :value="intelligence"
+              @input="(event) => handleChange('intelligence', event)"
+              type="range"
+              id="intelligence"
+              name="intelligence"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ intelligence }}</span>
+          </div>
+          <div>
+            <label for="chance">Chance</label>
+            <input
+              class="attribute"
+              :value="chance"
+              @input="(event) => handleChange('chance', event)"
+              type="range"
+              id="chance"
+              name="chance"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ chance }}</span>
+          </div>
+        </div>
+        <soundEl></soundEl>
+      </div>
+      <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('/game/1')}" class="button" >Commencer votre aventure</button>
     </div>
-    <div class="character__attributes">
-      <h2>Attributes</h2>
-      <h2>
-        Total:
-        <span>{{ total }}</span>
-      </h2>
-      <div>
-        <label for="strength">Strength</label>
-        <input
-          class="attribute"
-          :value="strength"
-          @input="(event) => handleChange('strength', event)"
-          type="range"
-          id="strength"
-          name="strength"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ strength }}</span>
-      </div>
-      <div>
-        <label for="charisma">Charisma</label>
-        <input
-          class="attribute"
-          :value="charisma"
-          @input="(event) => handleChange('charisma', event)"
-          type="range"
-          id="charisma"
-          name="charisma"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ charisma }}</span>
-      </div>
-      <div>
-        <label for="dexterity">Dexterity</label>
-        <input
-          class="attribute"
-          :value="dexterity"
-          @input="(event) => handleChange('dexterity', event)"
-          type="range"
-          id="dexterity"
-          name="dexterity"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ dexterity }}</span>
-      </div>
-      <div>
-        <label for="intelligence">Intelligence</label>
-        <input
-          class="attribute"
-          :value="intelligence"
-          @input="(event) => handleChange('intelligence', event)"
-          type="range"
-          id="intelligence"
-          name="intelligence"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ intelligence }}</span>
-      </div>
-      <div>
-        <label for="chance">Chance</label>
-        <input
-          class="attribute"
-          :value="chance"
-          @input="(event) => handleChange('chance', event)"
-          type="range"
-          id="chance"
-          name="chance"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ chance }}</span>
-      </div>
-    </div>
-    <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('/game/1')}" class="button" >Commencer votre aventure</button>
   </div>
 </template>
 
 <script>
 import attributesService from "../services/attributesService";
+import soundEl from './soundEl.vue';
 
 export default {
   data() {
@@ -107,6 +115,9 @@ export default {
       total: 15,
       attributes: attributesService.value()
     };
+  },
+    components:{
+    soundEl
   },
   computed:{
     attributesNodes: function (){
@@ -169,10 +180,68 @@ export default {
 </script>
 
 <style scoped>
+.viewGame{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  font-size: 75px;
+  color: #ffffff;
+  margin-top: 10px;
+}
+h2{
+  color: #BA7936;
+  font-size: 20px;
+  font-family: amarante;
+  padding:5px;
+}
+.elements{
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+.characters{
+ display: flex;
+ flex-direction: column;
+}
+.character__name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.character__name input{
+  width: 300px;
+  height: 25px;
+  border-radius: 10px;
+  margin-top:10px;
+}
+.character__name label{
+  color: #BA7936;
+  font-size: 20px;
+  font-family: amarante;
+}
+.character__attributes--title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+label{
+  color: #BA7936;
+}
+span{
+  color: #ffffff;
+}
+.viewGame{
+  background: url('../assets/img/bg.png')
+}
 .inactive {
   color: #c6c6c6;
   cursor: initial;
   background-color: #EEE;
 }
+
 </style>
 
