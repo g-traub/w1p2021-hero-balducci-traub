@@ -17,6 +17,13 @@ class attributesService {
     console.log('attributes');
     return this.attributes;
   }
+  process() {
+    for (attribute in this.attributes){
+      this.attributes[attribute] = parseInt(this.attributes[attribute])- 3;
+    }
+    console.log('processed attributes', this.attributes);
+    return this.attributes;
+  }
 }
 
 module.exports = new attributesService();
