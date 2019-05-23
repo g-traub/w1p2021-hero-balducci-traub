@@ -19,6 +19,11 @@ h2{
 .viewGame{
   height: 100vh;
   width: 100vW;
+  overflow: hidden;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+
 }
 .sound{
   width: 34px;
@@ -42,4 +47,8 @@ h2{
 }
 .button:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.icon{
+  cursor: pointer; 
 }

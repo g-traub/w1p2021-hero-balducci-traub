@@ -1,17 +1,28 @@
 <template>
-  <div class="viewGame one">
-    <router-link class="button" to="/">Go to Home</router-link>
-    <h1>{{step.title}}</h1>
-    <p>{{step.text}}</p>
-    <p>{{money}}</p>
-    <button 
-    class="button" 
-    v-for="action in step.actions"
-    :key="action.id"
-    @click="doAction(action)"
-    >{{action.label}}</button>
+  <div class="viewGame" :class="step.class" :style="step.class.includes('fullscreen') ? {background: 'url(\'../assets/img/'+step.image+'\')'} : {background: 'url(\'../assets/img/bg.png\')'} ">
+    <div class="money">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 35 43.75" enable-background="new 0 0 35 35" xml:space="preserve"><g><path d="M16.5,13v5.6c0,0.6-0.5,1-1,1s-1-0.4-1-1V13c-1.4-0.1-2.2,0.2-3.2-0.4c-2.9,4-4.8,10.1-4.8,13.7c0,5.9,4.9,7.2,11,7.2   s11-1.2,11-7.2c0-3.7-1.9-9.7-4.8-13.7C22.6,13.2,22,12.9,16.5,13z"/><path d="M11.5,4c0,1.5,0.8,3.7,2,5.5h-1c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1h10c0.6,0,1-0.4,1-1c0-0.6-0.4-1-1-1h-0.9   c1.2-1.8,2-4.1,2-5.5C13.7,8.3,15.1-3.3,11.5,4z"/></g></svg>
+      <p>{{money}}</p>
+    </div>
+    <div class="main-content">
+      <h1>{{step.place}}</h1>
+      <div class="card">
+        <p>{{step.text}}</p>
+        <div class="buttons">
+          <button 
+          class="button" 
+          v-for="action in step.actions"
+          :key="action.id"
+          @click="doAction(action)"
+          >{{action.label}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="images">
+      <img v-if="step.class ? !step.class.includes('fullscreen'): true" :src="'../assets/img/' + step.image">
+    </div>
     <soundEl></soundEl>
-    <svg class="home" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M93.3,49.6L81.9,38.2l-2.7-2.7l-4.6-4.6L53.9,10.1c-2.1-2.1-5.6-2.1-7.7,0L25.3,30.9l-4.9,4.9l-2.4,2.4L6.7,49.6  c-2.2,2.2-2.2,5.9,0,8.1l0.1,0.1c2.2,2.2,5.9,2.2,8.1,0l3.2-3.2v30.9c0,3.3,2.7,6,6,6h12.1c2.3,0,4.2-1.6,4.6-3.8  c0.1-0.3,0.1-0.6,0.1-0.8V64.4h18.5v22.4c0,0.3,0,0.6,0.1,0.8c0.4,2.2,2.3,3.8,4.6,3.8H76c3.3,0,6-2.7,6-6V54.6l3.2,3.2  c2.2,2.2,5.9,2.2,8.1,0l0.1-0.1C95.6,55.5,95.6,51.8,93.3,49.6z"/></svg>
+    <svg @click="redirect('/home')" class="home icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M93.3,49.6L81.9,38.2l-2.7-2.7l-4.6-4.6L53.9,10.1c-2.1-2.1-5.6-2.1-7.7,0L25.3,30.9l-4.9,4.9l-2.4,2.4L6.7,49.6  c-2.2,2.2-2.2,5.9,0,8.1l0.1,0.1c2.2,2.2,5.9,2.2,8.1,0l3.2-3.2v30.9c0,3.3,2.7,6,6,6h12.1c2.3,0,4.2-1.6,4.6-3.8  c0.1-0.3,0.1-0.6,0.1-0.8V64.4h18.5v22.4c0,0.3,0,0.6,0.1,0.8c0.4,2.2,2.3,3.8,4.6,3.8H76c3.3,0,6-2.7,6-6V54.6l3.2,3.2  c2.2,2.2,5.9,2.2,8.1,0l0.1-0.1C95.6,55.5,95.6,51.8,93.3,49.6z"/></svg>
   </div>
   
 </template>
@@ -30,7 +41,7 @@ export default {
       allies: this.getAllies(),
       milestones: this.getMilestones(),
       attributes: attributesService.value(),
-      money: moneyService.value(),
+      money: moneyService.value()
     }
   },
   components: {
@@ -82,6 +93,9 @@ export default {
       }
       return this.milestones
     },
+    redirect(url){
+      this.$router.push(url);
+    },
     doAction(action){
       if (action.effects){
         if (action.effects.money){
@@ -89,7 +103,7 @@ export default {
           this.money = moneyService.value();
         }
       }
-      localStorage.setItem('savedStep', this.step.id);
+      localStorage.setItem('savedStep', action.to);
       this.$router.push(action.to);
     },
 /*     canDo(action){
@@ -107,6 +121,18 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.viewGame{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-content{
+  z-index: 1;
+}
+h1{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
 .home{
   position: absolute;
   width: 38px;
@@ -116,8 +142,76 @@ export default {
   bottom: 10px;
 }
 .one{
+  .images{
+    margin-left: -15px;
+  }
+}
+.card{
+  background-color: #EBE4DA;
+  width: 40vw;
+  min-width: 200px;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .button{
+    margin-bottom: 0;
+  }
+  p{
+    font-size: 18px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+}
+.money{
+  width: 60px;
+  height:60px;
+  z-index:4;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  svg{
+    fill: #553E31;
+  }
+  p{
+    z-index:5;
+    color: #BA7936;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+  }
+}
+.images{
+  max-width: 40vw;
+  img{
+    min-width: 350px;
+    border-radius: 15px;
+  }
+}
+
+.two{
   &.viewGame{
-    background: url('../assets/img/bg.png');
+    flex-direction: row-reverse;
+  }
+  .images{
+     margin-right: -15px;
+  }
+  h1{
+    text-align: right;
+  }
+}
+.three{
+  .images{
+    display: none;
+  }
+  &.viewGame{
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
