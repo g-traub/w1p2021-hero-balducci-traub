@@ -35,11 +35,11 @@ video{
   top: 0;
   z-index: -1;
 }
+
 </style>
 
-
-
 <script>
+
 import soundEl from './soundEl.vue';
 import game from '../data.json';
 
