@@ -870,7 +870,19 @@
 				}
 			]
 		}
-		
-		
+	],
+	"lose": [
+		{
+			"id": "1",
+			"title": "GameOver",
+			"texte": "Vous avez été arreté",
+			"background": "image"
+		},
+		{
+			"id": "2",
+			"title": "GameOver",
+			"texte": "Vous avez été tuer",
+			"background": "image"
+		}
 	]
 }

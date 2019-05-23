@@ -7,6 +7,11 @@
   </div>
 </template>
 
+<style scoped>
+
+</style>
+
+
 <script>
 import game from '../data.json';
 
@@ -18,7 +23,7 @@ export default {
   },
   methods: {
     getLoss(){
-      return game.losses.find(loss => loss.id === this.$route.params.id)
+      return game.lose.find(loss => loss.id === this.$route.params.id)
     }
   }
 };
