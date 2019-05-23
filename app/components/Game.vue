@@ -1,6 +1,5 @@
 <template>
   <div class="big-header">
-    
     <router-link class="button" to="/">Go to Home</router-link>
     <h1>{{step.title}}</h1>
     <p>{{step.text}}</p>
@@ -11,6 +10,7 @@
     :key="action.id"
     @click="doAction(action)"
     >{{action.label}}</button>
+    <soundEl></soundEl>
   </div>
 </template>
 
@@ -18,7 +18,7 @@
 import game from '../data.json';
 import moneyService from '../services/moneyService';
 import attributesService from '../services/attributesService';
-
+import soundEl from './soundEl.vue';
 
 export default {
   data() {
@@ -28,8 +28,11 @@ export default {
       allies: this.getAllies(),
       milestones: this.getMilestones(),
       attributes: attributesService.value(),
-      money: moneyService.value()
+      money: moneyService.value(),
     }
+  },
+  components: {
+    soundEl
   },
   computed: {
     step: function () {
@@ -92,12 +95,12 @@ export default {
     }, */
     randomizeOutcome(percentage, caracName, carac){
       return Math.random() < percentage + 0.5 * carac[caracName]
-    }
+    },
   },
-  /* mounted(){
-    setTimeout(() =>{
+  mounted(){
+    /* setTimeout(() =>{
        this.$refs.audio.pause();
-    }, 3000);
-  } */
+    }, 3000); */
+  }
 };
 </script>
