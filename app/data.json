@@ -132,7 +132,7 @@
 		{
 			"id": "9",
 			"place": "City",
-			"text": "Entrer dans la ville. “Nom du personnage” retourne dans cette ville. Cette ville que lui et sont frére c’etait juré qu’après un tel larcin jamais ils n’y reviendraient. Il a besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
+			"text": "Entrer dans la ville. {nom} retourne dans cette ville. Cette ville que lui et sont frére c’etait juré qu’après un tel larcin jamais ils n’y reviendraient. Il a besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
 			"class": "one fullscreen",
 			"image": "interieur.jpg",
 			"actions": [
@@ -164,11 +164,17 @@
 			"id": "11",
 			"place": "Auberge",
 			"text": "Le vieux tous bourrer lui parle d’une carte (une carte de la ville a cette epoque est tres rare) et lui propose de la vendre ou de jouer pour la gagner.",
-			"background": "image3",
+			"image": "interieur.jpg",
+			"class": "fullscreen",
 			"actions": [
 				{
 					"label": "Accepter de jouer",
-					"to": "14"
+					"to": "14",
+					"game": true,
+					"gameDetails": {
+						"percentage": 0.5,
+						"caracName": "chance"
+					}
 				},
 				{
 					"label": "Refuser de jouer",

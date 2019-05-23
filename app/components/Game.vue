@@ -7,10 +7,12 @@
     <div class="main-content">
       <h1>{{step.place}}</h1>
       <div class="card">
-        <p>{{step.text}}</p>
-        <div class="buttons">
+        <p>{{step.text.includes('{nom}') ? step.text.replace('{nom}', name) : step.text }}</p>
+        <div class="buttons" >
           <button 
-          class="button" 
+          class="button"
+          :ref="action.game" 
+          :class="action.game ? 'game' : '' "
           v-for="action in step.actions"
           :key="action.id"
           @click="doAction(action)"
@@ -40,7 +42,7 @@ export default {
       inventory: this.getInventory(),
       allies: this.getAllies(),
       milestones: this.getMilestones(),
-      attributes: attributesService.value(),
+      attributes: attributesService.process(),
       money: moneyService.value()
     }
   },
@@ -96,7 +98,26 @@ export default {
     redirect(url){
       this.$router.push(url);
     },
+    randomizeOutcome(percentage, caracName, carac){
+      return Math.random() < percentage + 0.5 * parseInt(carac[caracName])
+    },
     doAction(action){
+      if(action.game){
+        let count = 0;
+        for (let i = 0 ; i<999 ; i++){
+          if (this.randomizeOutcome(action.gameDetails.percentage, action.gameDetails.caracName, attributesService.value())) count++;
+        }
+        console.log(count);
+        let result = this.randomizeOutcome(action.gameDetails.percentage, action.gameDetails.caracName, attributesService.value());
+        if(result){
+          this.$refs[action.game][0].classList.add('true')
+        }
+        else{
+           this.$refs[action.game][0].classList.add('false')
+        }
+        console.log(result);
+        return;
+      }
       if (action.effects){
         if (action.effects.money){
           moneyService.increment(action.effects.money);
@@ -109,18 +130,25 @@ export default {
 /*     canDo(action){
       return !action.need.money || this.count >= action.need.money
     }, */
-    randomizeOutcome(percentage, caracName, carac){
-      return Math.random() < percentage + 0.5 * carac[caracName]
-    },
-  },
-  mounted(){
-    /* setTimeout(() =>{
-       this.$refs.audio.pause();
-    }, 3000); */
   }
 };
 </script>
 <style lang="scss" scoped>
+.tooltip::before{
+  display: flex;
+  color: #000;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  content: '';
+  height: 30%;
+  width: 30%;
+  border: 1px solid red;
+  position: absolute;
+  right: 10%;
+  background: url('../assets/img/bulle.svg') center center no-repeat;
+
+}
 .viewGame{
   display: flex;
   justify-content: center;
@@ -213,5 +241,28 @@ h1{
     justify-content: center;
     align-items: center;
   }
+}
+.fullscreen{
+  h1{
+    background-color: #EBE4DA;
+    border: 4px solid #553E31;
+    border-radius: 15px;
+    color: #553E31;
+    display: inline-block;
+    padding: 1rem 3rem;
+  }
+}
+.game{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game::after{
+  content: '';
+  display: inline-block;
+  background: url('../assets/img/dice.png');
+  height: 28px;
+  width: 28px;
+  margin-left : 1rem;
 }
 </style>
