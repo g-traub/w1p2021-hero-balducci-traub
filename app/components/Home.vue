@@ -1,28 +1,75 @@
+
 <template>
-  <div class="big-header">
-    <h1>Nom du jeu</h1>
-    <br/>
-    <router-link 
-     v-if="!savedState || savedState === '1' ? true : false"
-    class="button" 
-    to="/character-customization">
-    Start
-    </router-link>
-    <button
-    v-else
-    class="button"
-    @click="redirect(`game/${savedState}`)">
-    Continue
-    </button>
-    <router-link class="button" to="/settings">Settings</router-link>
-    <br/>
+  <div class="viewGame">
+    <div class="hero">
+      <div class="titles">
+        <h1>The stolen jewelry of the queen</h1>
+        <br/>
+        <h2>L'histoire dont vous êtes le héro</h2>
+      </div>
+      <router-link 
+      v-if="!savedState || savedState === '1' ? true : false"
+      class="button" 
+      to="/character-customization">
+      Start
+      </router-link>
+      <button
+      v-else
+      class="button"
+      @click="redirect(`game/${savedState}`)">
+      Continuer
+      </button>
+      <br/>
+    </div>
     <footer>
-      <h2>Made by Victor Balducci &amp; Guillaume Traub</h2>
+      <p>Made by Victor Balducci &amp; Guillaume Traub</p>
       <a href="https://github.com/g-traub/w1p2021-hero-Balducci-Traub"><p>Check out the code on github</p></a>
     </footer>
      <soundEl></soundEl>
   </div>
 </template>
+
+<style scoped>
+.viewGame{
+  background-image: url('../assets/img/bghome.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.titles{
+  margin: 0 auto;
+  text-align: center;
+}
+.button{
+  margin: 40vh auto 0 auto;
+}
+h1{
+  font-size: 65px;
+  margin-top: 10vh;
+}
+h2{
+  font-size: 34px;
+  color: #BA7936;
+  margin-top: 10px;
+}
+footer{
+ display: flex;
+ flex-direction: row;
+ position: absolute;
+ bottom: 5px;
+ left: 5px;
+}
+footer a{
+ text-decoration: none;
+ color: #BA7936;
+ margin-left: 5px;
+}
+</style>
 
 <script>
 import soundEl from './soundEl.vue';
