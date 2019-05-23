@@ -156,10 +156,10 @@ export default {
   width: 30%; 
 }
 .true::before{
-  background: url('../assets/img/reussite.gif') center center no-repeat;
+  background: url('../assets/img/reussite.gif') center center / contain no-repeat;
 }
 .false::before{
-  background: url('../assets/img/echec.gif') center center no-repeat;
+  background: url('../assets/img/echec.gif') center center / contain  no-repeat;
 }
 
 .viewGame{
@@ -192,7 +192,7 @@ h1{
   width: 40vw;
   min-width: 200px;
   border-radius: 15px;
-  padding: 2rem;
+  padding: 10%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   .buttons{
     display: flex;
@@ -201,6 +201,7 @@ h1{
   }
   .button{
     margin-bottom: 0;
+    padding: 5% 15%;
   }
   p{
     font-size: 18px;
@@ -209,6 +210,9 @@ h1{
   }
 }
 .money{
+  background-color: #EBE4DA;
+  border-radius: 50%;
+  border: 4px solid #553E31;
   width: 60px;
   height:60px;
   z-index:4;
@@ -220,7 +224,10 @@ h1{
   }
   p{
     z-index:5;
-    color: #BA7936;
+    background-color:#BA7936; 
+    border-radius: 50%;
+    padding: 5%;
+    color: #EBE4DA;
     position: absolute;
     top: 0;
     right: 0;
@@ -245,6 +252,12 @@ h1{
   h1{
     text-align: right;
   }
+  .true::before{
+  background: url('../assets/img/reussite.gif') center center / contain no-repeat;
+  }
+  .false::before{
+    background: url('../assets/img/echec.gif') center center / contain  no-repeat;
+  }
 }
 .three{
   .images{
@@ -262,7 +275,7 @@ h1{
     border-radius: 15px;
     color: #553E31;
     display: inline-block;
-    padding: 1rem 3rem;
+    padding: 2% 4%;
   }
 }
 .game{
@@ -273,9 +286,9 @@ h1{
 .game::after{
   content: '';
   display: inline-block;
-  background: url('../assets/img/dice.png');
+  background: url('../assets/img/dice.png') center center no-repeat;
   height: 28px;
-  width: 28px;
-  margin-left : 1rem;
+  min-width: 28px;
+  margin-left: 1rem;
 }
 </style>

@@ -174,5 +174,8 @@ export default {
   cursor: initial;
   background-color: #EEE;
 }
+.button{
+  padding: 2% 7%;
+}
 </style>
 
