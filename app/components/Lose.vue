@@ -5,9 +5,10 @@
       <p>{{lose.text}}</p>
     </div>
     <div class="buttoncontent">
-      <router-link disabled class="button" to="#">Back to saved state</router-link>
-      <router-link class="button" to="/">Back to Home</router-link>
+      <router-link disabled class="button" to="#">Dernier checkpoint</router-link>
+      <router-link class="button" to="/">Retour au menu</router-link>
     </div>
+    <soundEl></soundEl>
   </div>
 </template>
 
@@ -54,12 +55,16 @@ p{
 
 <script>
 import game from '../data.json';
+import soundEl from './soundEl.vue';
 
 export default {
   data() {
     return {
       lose: this.getLoss()
     }
+  },
+    components:{
+    soundEl
   },
   methods: {
     getLoss(){
