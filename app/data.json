@@ -4,6 +4,8 @@
 			"id": "1",
 			"place": "Tente",
 			"text": "Point de rendez-vous -> attendu toute la nuit son frère est pas là. Entend au loin des cris. ",
+			"class": "one",
+			"image": "tente.jpg",
 			"actions": [
 				{
 					"label": "Rester",
@@ -19,7 +21,8 @@
 			"id": "2",
 			"place": "Tente",
 			"text": "il decide d’attendre les cris se dissipent et décide de partir pour la ville.",
-			"background": "image12",
+			"image": "tente.jpg",
+			"class": "two",
 			"actions": [
 				{
 					"label": "Vous allez en ville",
@@ -31,7 +34,7 @@
 			"id": "3",
 			"place": "Tente",
 			"text": "Vous sortez de la tente : Voit un attroupement, s’approche et entend un crieur de journal qui annonce le vol des bijoux de la reine et l’arrestation d’un des voleurs. L’autre est encore en cavale. ",
-			"background": "image12",
+			"class":"three",
 			"actions": [
 				{
 					"label": "Vous allez en ville",
@@ -130,7 +133,8 @@
 			"id": "9",
 			"place": "City",
 			"text": "Entrer dans la ville. “Nom du personnage” retourne dans cette ville. Cette ville que lui et sont frére c’etait juré qu’après un tel larcin jamais ils n’y reviendraient. Il a besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
-			"background": "image10",
+			"class": "one fullscreen",
+			"image": "interieur.jpg",
 			"actions": [
 				{
 					"label": "aller dans l’auberge",
