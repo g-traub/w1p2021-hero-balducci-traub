@@ -195,7 +195,7 @@
 		{
 			"id": "11",
 			"place": "Auberge",
-			"text": "Le viel homme lui parle d’une carte (une carte de la ville à cette époque est très rare) et lui propose de la vendre ou de jouer pour la gagner.",
+			"text": "Le viel homme lui parle d’une carte (une carte de la ville à cette époque est très rare) et lui propose de la vendre ou de jouer pour la gagner. Il parie qu’il peut finir sa bière plus vite que vous.",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -217,7 +217,7 @@
 					}
 				},
 				{
-					"label": "Lui acheter la carte",
+					"label": "Acheter la carte",
 					"to": "13"
 				}
 			]
@@ -238,40 +238,25 @@
 		{
 			"id": "13",
 			"place": "Auberge",
-			"text": "Vous avez obtenue une carte",
+			"text": "Le viel homme prend votre argent et vous donne la carte",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"item": "carte",
 			"actions": [
 				{
 					"label": "Continuer",
-					"to": "15"
-				}
-			]
-		},
-		{
-			"id": "14",
-			"place": "Auberge",
-			"text": "Pari qu’il peut finir sa bière plus vite que vous !?",
-			"image": "interieur.jpg",
-			"class": "fullscreen",
-			"game": "lancé de dés 50%",
-			"actions": [
-				{
-					"label": "Perdu",
-					"to": "16",
-					"money": -3
-				},
-				{
-					"label": "Gagner",
-					"to": "15"
+					"to": "15",
+					"effects": {
+						"inventory": "citymap",
+						"money": -3
+					}
 				}
 			]
 		},
 		{
 			"id": "15",
 			"place": "Auberge",
-			"text": "La jour commence à ce lever, vous et le veille homme avez passé votre soirée à boire.",
+			"text": "La jour commence à ce lever, vous et le veil homme avez passé votre soirée à boire.",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -291,10 +276,12 @@
 				{
 					"label": "Payer",
 					"effects": {
-						"money": -3
+						"money": -5
 					},
-					"to": "17"
-					
+					"need": {
+						"money": 5
+					},
+					"to": "17"		
 				}
 			]
 		},
@@ -326,7 +313,7 @@
 			"class": "two",
 			"actions": [
 				{
-					"label": "Vous avez trouvez la prison. Continuez",
+					"label": "Continuer",
 					"to": "36"
 				}
 			]
@@ -334,33 +321,45 @@
 		{
 			"id": "19",
 			"place": "Perdu en ville",
-			"text": "Vous vous perdez dans la ville et vous arrivez dans une ruelle sombre. Vous tombez sur une bande de truand malicieux. L'un d'eux vous bouscule et vous barre la route. Vous vous battez contre ces truands.",
+			"text": "Vous vous perdez dans la ville et vous arrivez dans une ruelle sombre. Vous tombez sur une bande de truand malicieux. L'un d'eux vous bouscule et vous barre la route. Ils vous attaquent",
 			"image": "imageNuit05.jpg",
 			"class": "one",
-			"game": "lancé de dés 30%",
 			"actions": [
 				{
-					"label": "Victoire",
-					"to": "21",
-					"money": 5
-				},
-				{
-					"label": "Défaite",
-					"to": "20",
-					"money":0
+					"label": "Vous défendre",
+					"game": true,
+					"gameDetails": {
+						"percentage": 0.3,
+						"caracName": "force",
+						"true": {
+							"to": "21",
+							"effects": {
+								"money": 5
+							}
+						},
+						"false": {
+							"to": "20",
+							"effects": {
+								"money": -200
+							}
+						}
+					}
 				}
 			]
 		},
 		{
 			"id": "20",
 			"place": "Grange",
-			"text": "Vous vous refugie dans une grange et vous trouvez des vetements de paysan.",
+			"text": "Vous vous refugiez dans une grange et vous trouvez des vetements de paysan.",
 			"image": "image5.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
 					"label": "Continuer",
-					"to": "23"
+					"to": "23",
+					"effects": {
+						"inventory": "disguise"
+					}
 				}
 			]
 		},
@@ -383,13 +382,18 @@
 			"text": "Vous partez errer dans les rues en cherchant une idée. Vous arrivez par hasard sur un marché et vous décidez de demander à un marchand la direction de la prison. Il vous propose d’acheter l’info (5 pieces) ou de repondre à une énigme.",
 			"image": "market1.jpg",
 			"class": "fullscreen",
-			"game": "Bien gardé, difficile à trouver, difficile à garder, Je cesse dès lors que je suis découvert. (un secret)",
-			"actions": [
-				{
-					"label": "Continuer",
+			"enigma": "Bien gardé, difficile à trouver, difficile à garder, Je cesse dès lors que je suis découvert. (un secret)",
+			"enigmaDetails": {
+				"true": {
+					"to": "32",
+					"effects": {
+						"milestones": "foundPrison"
+					}
+				},
+				"false": {
 					"to": "32"
 				}
-			]
+			}
 		},
 		{
 			"id": "23",
@@ -397,32 +401,60 @@
 			"text": "Vous partez errer dans les rues en cherchant une idée. Vous arrivez par hasard sur un marché et vous décidez de demander à un marchand la direction de la prison. Il vous propose d’acheter l’info (5 pieces) ou de repondre à une énigme.",
 			"image": "market1.jpg",
 			"class": "fullscreen",
-			"game": "Bien gardé, difficile à trouver, difficile à garder, Je cesse dès lors que je suis découvert. (un secret)",
+			"enigma": "Bien gardé, difficile à trouver, difficile à garder, Je cesse dès lors que je suis découvert. (un secret)",
+			"enigmaDetails": {
+				"true": {
+					"to": "32",
+					"effects": {
+						"milestones": "foundPrison"
+					}
+				},
+				"false": {
+					"to": "112"
+				}
+			}
+		},
+		{
+			"id": "112",
+			"place": "Perdu dans la ville",
+			"text": "\"Les énigmes c'est pas votre fort...\" Vous reprenez votre chemin. Vous aperçevez un mandiant ",
+			"image": "market1.jpg",
+			"class": "fullscreen",
 			"actions": [
 				{
-					"label": "Réussite",
-					"to": "32"
-				},
-				{
-					"label": "échec ! Vous avez parlé au mendiant",
+					"label": "Aller lui parler",
+					"need": {
+						"allies": "homeless"
+					},
 					"to": "24"
 				},
 				{
-					"label": "échec ! Vous n'avez pas parlé au mendiant",
+					"label": "Continuer",
 					"to": "28"
 				}
+				
 			]
 		},
 		{
 			"id": "24",
 			"place": "Perdu dans la ville",
-			"text": "Vous continuer à déambuler, dans les rues et vous aperçevez le mendiant à qui vous avez parlé en dehors de la ville, vous allez le voir.Il met quelques secondes a vous reconnaitre dans cet acoutrement et vous parle. Il dit que comme promi il va vous rendre la pareille : il vous parle d’une porte cachée au fin-fond de la ville , derrière laquelle se cacherait un trésor. Il vous guide jusqu’à elle puis s’en va. Elle est fermement vérouillée.",
+			"text": "C'est le mendiant à qui vous avez parlé en dehors de la ville! Il met quelques secondes a vous reconnaitre dans cet acoutrement et vous parle. Il dit que comme promi il va vous rendre la pareille : il vous parle d’une porte cachée au fin-fond de la ville , derrière laquelle se cacherait un trésor. Il vous guide jusqu’à elle puis s’en va. Elle est fermement vérouillée.",
 			"image": "market.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
 					"label": "essayer de la casser",
-					"to": "25"
+					"game": true,
+					"gameDetails": {
+						"percentage": 0.05,
+						"caracName": "force",
+						"true": {
+							"to": "26"
+						},
+						"false": {
+							"to": "27"
+						}
+					}
 				},
 				{
 					"label": "l’observer de plus près",
@@ -431,54 +463,35 @@
 			]
 		},
 		{
-			"id": "25",
-			"place": "Perdu dans la ville",
-			"text": "?",
-			"image": "porte.png",
-			"class": "one",
-			"game": "lancé de dés 5%",
-			"actions": [
-				{
-					"label": "Echec",
-					"to": "27"
-				},
-				{
-					"label": "Reussite",
-					"to": "26"
-				}
-			]
-		},
-		{
 			"id": "26",
 			"place": "Perdu dans la ville",
-			"text": "la porte s’ouvre, devant vous un tas de pièces d’or et un enfant qui vous regarde interloqué. Il vous demande si vous demande si vous êtes un ami de son père et vous répondez que oui c’est lui qui vous a demander de passer. Vous prenez les pièces d’or et partez, avant que l’enfant n’ai le temps de comprendre ce qu’il se passe.",
+			"text": "la porte s’ouvre... devant vous un tas de pièces d’or et un enfant qui vous regarde interloqué. Il vous demande si vous demande si vous êtes un ami de son père et vous répondez que oui c’est lui qui vous a demander de passer. Vous prenez les pièces d’or et partez, avant que l’enfant n’ai le temps de comprendre ce qu’il se passe.",
 			"image": "market.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
-					"label": "s'en aller",
+					"label": "Prendre l'or et s'en aller",
 					"to": "28",
-					"money": 100
+					"effects": {
+						"money": 100
+					}
 				}
 			]
 		},
 		{
 			"id": "27",
 			"place": "Perdu dans la ville",
-			"text": "enigme : porte voix aigue parle à travers et vous demande le code",
-			"image": "porte.png",
-			"class":  "two",
-			"game": "Enigme",
-			"actions": [
-				{
-					"label": "Echec",
-					"to": "28"
-				},
-				{
-					"label": "Reussite",
+			"enigma": "enigme : porte voix aigue parle à travers et vous demande le code",
+			"enigmaDetails": {
+				"true": {
 					"to": "26"
+				},
+				"false": {
+					"to": "28"
 				}
-			]
+			},
+			"image": "porte.png",
+			"class":  "two"
 		},
 		{
 			"id": "28",
@@ -488,8 +501,24 @@
 			"class":"two",
 			"actions": [
 				{
-					"label": "Si vous avez assez d'agent tenté de soudoyer le garde",
-					"to": "30"
+					"label": "Essayer de soudoyer le garde (100 pièces d'or)",
+					"need": {
+						"money": 100
+					},
+					"game": true,
+					"gameDetails": {
+						"percentage": 0.7,
+						"caracName": "intelligence",
+						"true": {
+							"to": "30",
+							"effects": {
+								"money": -100
+							}
+						},
+						"false": {
+							"to": "../lose/1"
+						}
+					}
 				},
 				{
 					"label": "Parler",
@@ -503,7 +532,6 @@
 			"text": "Le garde ne se méfie pas d’un paysan et vous indique le chemin. Vous décidez d’attendre la nuit et d’aller libérer votre frère.",
 			"image": "image7bis.jpg",
 			"class": "one",
-			"item":"prison trouvé",
 			"actions": [
 				{
 					"label": "Continuer",
@@ -514,18 +542,13 @@
 		{
 			"id": "30",
 			"place": "Perdu dans la ville",
-			"text": "Vous montrez au garde la bourse contenant les 100 pièces et lui prometter en échange de son aide pour entrer dans la prison et trouver un certaine cellule.",
+			"text": "Le garde accepte de vous aider, vous partez ensemble en direction de la prison.",
 			"image": "image10.jpg",
 			"class": "one",
-			"game": "lancé de dés 70%",
 			"actions": [
 				{
-					"label": "Réussite",
+					"label": "Continuer",
 					"to": "48"
-				},
-				{
-					"label": "Echec",
-					"to": "../lose/1"
 				}
 			]
 		},
@@ -537,7 +560,7 @@
 			"class": "two",
 			"actions": [
 				{
-					"label": "Continuez",
+					"label": "Partir pour la prison",
 					"to": "48"
 				}
 			]
@@ -556,24 +579,29 @@
 				{
 					"label": "L’emmener à la prison",
 					"to": "33",
-					"money": 2
+					"effects":{
+						"money": 2
+					}
 				}
 			]
 		},
 		{
 			"id": "33",
 			"place": "Perdu dans la ville",
-			"text": "Vous décider de rentrer dans une boutique à l’aspect étrange pour dépenser vos pièces d’or fraichement acquises. Il vous dit qu’il a un kit de crochetage mais qu’il l’a perdu, si vous le trouvez, il est à vous pour 2 pieces.",
+			"text": "Vous décider de rentrer dans une boutique à l’aspect étrange pour dépenser vos pièces d’or fraichement acquises. Il vous dit qu’il a un kit de crochetage, il est à vous pour 2 pieces.",
 			"image": "image15.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
-					"label": "Vous trouvez le kit",
+					"label": "L'acheter",
 					"to": "34",
-					"item": "kit de chochetage"
+					"effects": {
+						"money": -2,
+						"inventory": "lockpick"
+					}
 				},
 				{
-					"label": "Vous ne le trouvez pas",
+					"label": "Ne pas l'acheter",
 					"to": "35"
 				}
 			]
@@ -581,16 +609,12 @@
 		{
 			"id": "34",
 			"place": "Perdu dans la ville",
-			"text": "Pense avoir ce qu’il faut pour libérer son frère.",
+			"text": "Vous pensez avoir ce qu’il faut pour libérer son frère.",
 			"image": "image15.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
-					"label": "Vous partez de jour",
-					"to": "48"
-				},
-				{
-					"label": "Vous attendez la nuit",
+					"label": "Attendre la nuit et partir pour la prison",
 					"to": "48"
 				}
 			]
@@ -598,11 +622,11 @@
 		{
 			"id": "35",
 			"place": "Perdu dans la ville",
-			"text": "Après 2 jours passés dans le ville vous décider d’attendre la nuit et d’aller libérer votre frère. Vous trouverz un moyen d’ouvrir sa cellule une fois dans la prison",
+			"text": "Après 2 jours passés dans le ville vous décidez d’attendre la nuit et d’aller libérer votre frère. Vous trouverz un moyen d’ouvrir sa cellule une fois dans la prison",
 			"image": "image6bis.jpg",
 			"actions": [
 				{
-					"label": "Passez a l'action !",
+					"label": "Passer a l'action !",
 					"to": "48"
 				}
 			]
@@ -616,7 +640,21 @@
 			"actions": [
 				{
 					"label": "S'enfuir",
-					"to": "38"
+					"to": "38",
+					"game": true,
+				"gameDetails": {
+				"percentage": 0.7,
+				"caracName": "intelligence",
+				"true": {
+					"to": "48",
+					"effects": {
+						"money": -100
+					}
+				},
+				"false": {
+					"to": "../lose/1"
+				}
+			}
 				},
 				{
 					"label": "Rester",
