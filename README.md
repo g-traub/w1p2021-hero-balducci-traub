@@ -40,3 +40,8 @@ URL du site : https://infallible-tereshkova-e192e8.netlify.com/
 ### Lancer le projet
 * `npm i`
 * `npm run dev`
+
+### Ressources annexes
+
+* https://www.figma.com/file/FPiuxubCbMwkven7x8LV4prn/Le-site-dont-vous-%C3%AAtes-le-h%C3%A9ros?node-id=0%3A1
+
