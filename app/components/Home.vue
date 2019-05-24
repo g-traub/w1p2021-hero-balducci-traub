@@ -38,15 +38,16 @@
 }
 .hero{
   display: flex;
+  height: 100%;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .titles{
   margin: 0 auto;
   text-align: center;
 }
 .button{
-  margin: 40vh auto 0 auto;
+  padding: 2% 7%;
 }
 h1{
   font-size: 65px;

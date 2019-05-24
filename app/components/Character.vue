@@ -242,6 +242,5 @@ span{
   cursor: initial;
   background-color: #EEE;
 }
-
 </style>
 

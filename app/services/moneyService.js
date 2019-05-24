@@ -9,7 +9,6 @@ class MoneyService {
     }
   }
   value() {
-    console.log('money');
     return this.money;
   }
 }

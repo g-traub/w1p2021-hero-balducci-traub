@@ -1,7 +1,7 @@
 <template>
   <div class="viewGame">
     <div class="elements">
-      <h1>You Win</h1>
+      <h1>You Win !</h1>
       <router-link class="button" to="/">Retour au menu</router-link>
     </div>
     <video autoplay loop>
@@ -35,7 +35,9 @@ video{
   top: 0;
   z-index: -1;
 }
-
+.button{
+  padding: 4% 11%;
+}
 </style>
 
 <script>
