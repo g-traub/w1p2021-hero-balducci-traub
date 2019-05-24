@@ -46,9 +46,6 @@
   margin: 0 auto;
   text-align: center;
 }
-.button{
-  padding: 2% 7%;
-}
 h1{
   font-size: 65px;
   margin-top: 10vh;

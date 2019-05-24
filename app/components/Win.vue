@@ -35,9 +35,6 @@ video{
   top: 0;
   z-index: -1;
 }
-.button{
-  padding: 4% 11%;
-}
 </style>
 
 <script>

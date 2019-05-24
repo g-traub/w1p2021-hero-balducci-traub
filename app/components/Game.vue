@@ -201,7 +201,6 @@ h1{
   }
   .button{
     margin-bottom: 0;
-    padding: 5% 15%;
   }
   p{
     font-size: 18px;

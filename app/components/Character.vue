@@ -1,94 +1,109 @@
 <template>
-  <div class="big-header">
-    <h1>Character</h1>
+  <div class="viewGame">
+    <h1>Personnage</h1>
     <br>
     <div class="character__name">
-      <label for="name">Name : </label>
+      <label for="name">Nom : </label>
       <input v-model="name" type="text" id="name" name="name" maxlength="32">
     </div>
     <div class="character__attributes">
-      <h2>Attributes</h2>
-      <h2>
-        Total:
-        <span>{{ total }}</span>
-      </h2>
       <div>
-        <label for="strength">Strength</label>
-        <input
-          class="attribute"
-          :value="strength"
-          @input="(event) => handleChange('strength', event)"
-          type="range"
-          id="strength"
-          name="strength"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ strength }}</span>
+        <h2>Caractéristiques : </h2>
+        <h2 class="total">
+          Total:
+          <span>{{ total }}</span>
+        </h2>
+        <div class="caracs">
+          <div class="carac">
+            <label for="strength">Force</label>
+            <input
+              class="attribute"
+              :value="strength"
+              @input="(event) => handleChange('strength', event)"
+              type="range"
+              id="strength"
+              name="strength"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ strength }}</span>
+          </div>
+          <div class="carac">
+            <label for="charisma">Charisme</label>
+            <input
+              class="attribute"
+              :value="charisma"
+              @input="(event) => handleChange('charisma', event)"
+              type="range"
+              id="charisma"
+              name="charisma"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ charisma }}</span>
+          </div>
+          <div class="carac">
+            <label for="dexterity">Déxterité</label>
+            <input
+              class="attribute"
+              :value="dexterity"
+              @input="(event) => handleChange('dexterity', event)"
+              type="range"
+              id="dexterity"
+              name="dexterity"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ dexterity }}</span>
+          </div>
+          <div class="carac">
+            <label for="intelligence">Intelligence</label>
+            <input
+              class="attribute"
+              :value="intelligence"
+              @input="(event) => handleChange('intelligence', event)"
+              type="range"
+              id="intelligence"
+              name="intelligence"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ intelligence }}</span>
+          </div>
+          <div class="carac">
+            <label for="chance">Chance</label>
+            <input
+              class="attribute"
+              :value="chance"
+              @input="(event) => handleChange('chance', event)"
+              type="range"
+              id="chance"
+              name="chance"
+              step="1"
+              min="0"
+              max="6"
+            >
+            <span>{{ chance }}</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="charisma">Charisma</label>
-        <input
-          class="attribute"
-          :value="charisma"
-          @input="(event) => handleChange('charisma', event)"
-          type="range"
-          id="charisma"
-          name="charisma"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ charisma }}</span>
-      </div>
-      <div>
-        <label for="dexterity">Dexterity</label>
-        <input
-          class="attribute"
-          :value="dexterity"
-          @input="(event) => handleChange('dexterity', event)"
-          type="range"
-          id="dexterity"
-          name="dexterity"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ dexterity }}</span>
-      </div>
-      <div>
-        <label for="intelligence">Intelligence</label>
-        <input
-          class="attribute"
-          :value="intelligence"
-          @input="(event) => handleChange('intelligence', event)"
-          type="range"
-          id="intelligence"
-          name="intelligence"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ intelligence }}</span>
-      </div>
-      <div>
-        <label for="chance">Chance</label>
-        <input
-          class="attribute"
-          :value="chance"
-          @input="(event) => handleChange('chance', event)"
-          type="range"
-          id="chance"
-          name="chance"
-          step="1"
-          min="0"
-          max="6"
-        >
-        <span>{{ chance }}</span>
-      </div>
+      <aside class="info">
+        <div class="questionmark"> ? </div>
+        <p>
+          Les caractéristiques ont un impact (bonus ou malus) lors des évenements aléatoire du jeu marqués par le symbole
+        <span>
+          <img src="../assets/img/dice.png">
+        </span>
+        </p>
+      </aside>
     </div>
-    <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('/game/1')}" class="button" >Commencer votre aventure</button>
+    <div>
+      <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('/game/1')}" class="button" >Commencer votre aventure</button>
+    </div>
   </div>
 </template>
 
@@ -169,13 +184,127 @@ export default {
 </script>
 
 <style scoped>
+@media(min-width: 900px){
+  .info{
+    display: block !important;
+  }
+}
+.info{
+  display: none;
+  border: 2px solid #EEE;
+  color: #EEE;
+  border-radius: 15px;
+  width: 30vw;
+  position: absolute;
+  right: 20px;
+}
+.info p{
+  padding: 0 1rem 1rem 1rem;
+}
+.info img{
+  height: 18px;
+  width: 18px;
+  vertical-align: center;
+}
+.questionmark{
+  display: flex;
+  position: relative;
+  top: -10px;
+  left: -10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #482f31;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #EEE;
+}
+svg{
+  fill: #fff;
+}
+.total{
+  text-align: right;
+}
+.carac{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  max-width: 300px;
+}
+.carac label{
+  width: 80px;
+  text-align: right;
+}
 .inactive {
   color: #c6c6c6;
   cursor: initial;
   background-color: #EEE;
 }
-.button{
-  padding: 2% 7%;
+
+.viewGame{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background: url('../assets/img/bg.png');
+}
+h1{
+  font-size: 75px;
+  color: #fff;
+  margin-top: 2%;
+}
+h2{
+  color: #BA7936;
+  font-size: 20px;
+  font-family: amarante;
+  padding:5px;
+  text-align: center;
+}
+h2:not(.total){
+  margin: 5% auto ;
+}
+.elements{
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+.characters{
+ display: flex;
+ flex-direction: column;
+}
+.character__name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.character__name input{
+  width: 300px;
+  height: 25px;
+  border-radius: 10px;
+  margin-top:10px;
+}
+.character__name label{
+  color: #BA7936;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: amarante;
+}
+.character__attributes{
+  display: flex;
+  justify-content:  space-around;
+  align-items: flex-start;
+  width: 100%;
+}
+.character__attributes--title{
+  text-align: center;
+  padding: 15px;
+}
+label{
+  color: #BA7936;
+}
+span{
+  color: #ffffff;
 }
 </style>
 
