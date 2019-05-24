@@ -7,7 +7,7 @@
   "scripts": {
     "copy": "rm -rf dist/ && mkdir dist && mkdir dist/assets && cp -R app/assets/img dist/assets",
     "dev": "npm run copy && parcel app/index.html",
-    "build": "npm run copy && parcel build app/index.html && cp _redirects dist/",
+    "build": "parcel build app/index.html && cp _redirects dist/",
     "lint": "esw . --ext .js,.vue --watch --color"
   },
   "repository": {
