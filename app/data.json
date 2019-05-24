@@ -9,10 +9,7 @@
 			"actions": [
 				{
 					"label": "Rester",
-					"to": "2",
-					"effects": {
-						"money": 2
-					}
+					"to": "2"
 				},
 				{
 					"label": "Sortir",
@@ -65,7 +62,7 @@
 		{
 			"id": "5",
 			"place": "City",
-			"text": "Auriez-vous 1 piece d’or mon bon monsieur, ou quelque chose à manger? Je vous serez reconnaissant",
+			"text": "Auriez-vous 1 piece d’or mon bon monsieur, je sais me montrer reconaissant, je vous l'échange contre quelque chose.",
 			"image": "image8.jpg",
 			"class": "one",
 			"actions": [
@@ -89,7 +86,7 @@
 		{
 			"id": "6",
 			"place": "City",
-			"text": "Les gardes l’interpelle et lui demande de payer 3 pieces. Le garde vous arrete brusquement : Est-ce que vous êtes ...?",
+			"text": "Les gardes vous interpelle et vous demande de payer 3 pieces. Le garde vous arrete brusquement : Est-ce que vous êtes ...?",
 			"image": "image8.jpg",
 			"class": "two",
 			"actions": [
@@ -100,11 +97,30 @@
 						"percentage": 0.95,
 						"caracName": "charisma",
 						"true": {
-							"to": "10"
+							"to": "111"
 						},
 						"false": {
 							"to": "../lose/1"
 						}
+					}
+				}
+			]
+		},
+		{
+			"id": "111",
+			"place": "City",
+			"text": "\"Vous n'êtes pas le cousin de rodolphe?\" Vous lui répondez que non, vous le connaissez pas. Déçu, il vous demande de payer les 3 pièces d'or pour entrer dans la ville",
+			"image": "image8.jpg",
+			"class": "two",
+			"actions": [
+				{
+					"label": "Payer et entrer",
+					"to": "10",
+					"effects": {
+						"money": -3
+					},
+					"need": {
+						"money": 3
 					}
 				}
 			]
@@ -124,7 +140,7 @@
 		{
 			"id": "8",
 			"place": "City",
-			"text": "Le mandiant s’enfuit en courant avec un rire sadique",
+			"text": "Le mendiant s’enfuit en courant avec un rire sadique",
 			"image": "image8.jpg",
 			"class": "two",
 			"actions": [
@@ -150,26 +166,32 @@
 		{
 			"id": "10",
 			"place": "Auberge",
-			"text": "Vous marchez vers l'auberge tête baissé, en esperant ne pas etre reconnu. {nom} est prèt à tout pour retrouver sont frère. Il prend des risques en s'exposant de la sorte dans une auberge. ",
+			"text": "Vous marchez vers l'auberge tête baissé, en esperant ne pas etre reconnu. {nom} est prêt à tout pour retrouver sont frère. Il prend des risques en s'exposant de la sorte dans une auberge. ",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
 					"label": "Parler au tavernier pour prendre un chambre et dormir jusqu’à la nuit",
 					"to": "12",
-					"money": -2
+					"money": -2,
+					"need": {
+						"money": 3
+					}
 				},
 				{
 					"label": "S’installer et prend une cervoise. Parle à un vielle homme visiblement ivre",
 					"to": "11",
-					"money": -1
+					"money": -1,
+					"need": {
+						"money": 1
+					}
 				}
 			]
 		},
 		{
 			"id": "11",
 			"place": "Auberge",
-			"text": "Le vielle homme lui parle d’une carte (une carte de la ville à cette époque est très rare) et lui propose de la vendre ou de jouer pour la gagner.",
+			"text": "Le viel homme lui parle d’une carte (une carte de la ville à cette époque est très rare) et lui propose de la vendre ou de jouer pour la gagner.",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -279,11 +301,14 @@
 			"class": "one",
 			"actions": [
 				{
-					"label": "Vous avez une Carte",
-					"to": "18"
+					"label": "Vous rendre à la prison",
+					"to": "18",
+					"need": {
+						"inventory": "citymap"
+					}
 				},
 				{
-					"label": "Vous n'avez pas de carte",
+					"label": "Partir en quête d'information",
 					"to": "19"
 				}
 			]

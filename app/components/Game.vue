@@ -29,11 +29,12 @@
     <div class="main-content">
       <h1>{{step.place}}</h1>
       <div class="card">
-        <p>{{step.text.includes('{nom}') ? step.text.replace('{nom}', name) : step.text }}</p>
+        <p>{{step.text}}</p>
         <div class="buttons">
           <button
             class="button"
             :ref="action.game"
+            :disabled="!canDo(action)"
             :class="action.game ? 'game' : '' "
             v-for="action in step.actions"
             :key="action.id"
@@ -187,10 +188,23 @@ export default {
         console.log(effectName);
         localStorage.setItem(effectName, JSON.stringify(this[effectName]));
       }
-    }
-    /*     canDo(action){
-      return !action.need.money || this.count >= action.need.money
-    }, */
+    },
+    canDo(action){
+      if(!action.need){
+        console.log('can do');
+        return true;
+      }
+      else {
+        for (let needName in action.need){
+          console.log(needName, action.need[needName]);
+          if (needName === 'money'){
+            return this.money >= action.need[needName]
+          }
+      
+          return this[needName][action.need[needName]]
+        }
+      }
+    },
   }
 };
 </script>
@@ -251,6 +265,15 @@ h1 {
   }
   .button {
     margin-bottom: 0;
+    &:disabled{
+      background-color: rgb(39, 39, 39);
+      color: #666;
+      &:hover{
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: none;
+        cursor: not-allowed;
+      }
+    }
   }
   p {
     font-size: 18px;
