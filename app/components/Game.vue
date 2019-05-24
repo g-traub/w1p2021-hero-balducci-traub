@@ -42,6 +42,13 @@
           >{{action.label}}</button>
         </div>
       </div>
+    <div class="enigma" v-if="step.enigma">
+      <form v-on:submit.prevent>
+        <label ref="enigme" for="answer">Votre réponse : </label><br>
+        <input v-model="answer" type="text" name="answer" id="answer">
+        <button v-if="!answered" class="button" @click="checkAnswer(step.enigmaDetails)">Répondre</button>
+      </form>
+    </div>
     </div>
     <div class="images">
       <img
@@ -66,6 +73,7 @@
         d="M93.3,49.6L81.9,38.2l-2.7-2.7l-4.6-4.6L53.9,10.1c-2.1-2.1-5.6-2.1-7.7,0L25.3,30.9l-4.9,4.9l-2.4,2.4L6.7,49.6  c-2.2,2.2-2.2,5.9,0,8.1l0.1,0.1c2.2,2.2,5.9,2.2,8.1,0l3.2-3.2v30.9c0,3.3,2.7,6,6,6h12.1c2.3,0,4.2-1.6,4.6-3.8  c0.1-0.3,0.1-0.6,0.1-0.8V64.4h18.5v22.4c0,0.3,0,0.6,0.1,0.8c0.4,2.2,2.3,3.8,4.6,3.8H76c3.3,0,6-2.7,6-6V54.6l3.2,3.2  c2.2,2.2,5.9,2.2,8.1,0l0.1-0.1C95.6,55.5,95.6,51.8,93.3,49.6z"
       ></path>
     </svg>
+
   </div>
 </template>
 
@@ -83,7 +91,9 @@ export default {
       allies: this.getAllies(),
       milestones: this.getMilestones(),
       attributes: attributesService.process(),
-      money: moneyService.value()
+      money: moneyService.value(),
+      answer: '',
+      answered: false,
     };
   },
   components: {
@@ -140,22 +150,10 @@ export default {
     },
     doAction(action) {
       if (action.game) {
-        let count = 0;
-        for (let i = 0; i < 999; i++) {
-          if (
-            this.randomizeOutcome(
-              action.gameDetails.percentage,
-              action.gameDetails.caracName,
-              attributesService.value()
-            )
-          )
-            count++;
-        }
-        console.log(count);
         let result = this.randomizeOutcome(
           action.gameDetails.percentage,
           action.gameDetails.caracName,
-          attributesService.value()
+          attributesService.process()
         );
         this.$refs[action.game][0].classList.add(result);
         console.log(result);
@@ -205,10 +203,49 @@ export default {
         }
       }
     },
+    checkAnswer(details){
+      this.answered = true;
+      let correctAnswers = JSON.parse(details.answers);
+      let result = false;
+      for (let correct of correctAnswers){
+        if (this.answer == correct){
+          result = true;
+        }
+      }
+      this.answered = false;
+      if (result){
+         this.$refs.enigme.innerHTML = 'bonne réponse !';
+         setTimeout(() => {
+           this.redirect(details.true.to);
+         }, 2000);
+      }
+      else{
+        this.$refs.enigme.innerHTML = 'mauvaise réponse !';
+        setTimeout(() => {
+           this.redirect(details.false.to);
+         }, 2000);
+      }
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
+.enigma{
+  text-align: center;
+  margin-top: 2rem;
+}
+input{
+  width: 300px;
+  height: 25px;
+  border-radius: 10px;
+  margin-top:10px;
+  text-align: center;
+}
+.enigma label{
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 .true::before,
 .false::before {
   content: "";
@@ -277,7 +314,7 @@ h1 {
   }
   p {
     font-size: 18px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     text-align: center;
   }
 }
@@ -349,6 +386,11 @@ h1 {
     color: #553e31;
     display: inline-block;
     padding: 2% 4%;
+  }
+  .main-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .game {

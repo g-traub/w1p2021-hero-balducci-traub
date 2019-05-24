@@ -1,5 +1,6 @@
 class attributesService {
   constructor() {
+    this.processedAttributes = {};
     if(localStorage.getItem('attributes')){
       this.attributes = JSON.parse(localStorage.getItem('attributes'))
     }
@@ -18,11 +19,11 @@ class attributesService {
     return this.attributes;
   }
   process() {
-    for (attribute in this.attributes){
-      this.attributes[attribute] = parseInt(this.attributes[attribute])- 3;
+    for (let attribute in this.attributes){
+      this.processedAttributes[attribute] = parseInt(this.attributes[attribute])- 3;
     }
-    console.log('processed attributes', this.attributes);
-    return this.attributes;
+    console.log('processed attributes', this.processedAttributes);
+    return this.processedAttributes;
   }
 }
 

@@ -6,7 +6,7 @@
     </div>
     <div class="buttoncontent">
       <router-link disabled class="button" to="#">Dernier checkpoint</router-link>
-      <router-link class="button" to="/">Retour au menu</router-link>
+      <button class="button" @click="backtohome">Retour au menu</button>
     </div>
     <soundEl></soundEl>
   </div>
@@ -57,6 +57,7 @@ p{
 <script>
 import game from '../data.json';
 import soundEl from './soundEl.vue';
+import moneyService from "../services/moneyService";
 
 export default {
   data() {
@@ -70,6 +71,17 @@ export default {
   methods: {
     getLoss(){
       return game.lose.find(loss => loss.id === this.$route.params.id)
+    },
+    backtohome(){
+      //clear storage
+      let items = ['money', 'allies','attributes', 'inventory', , 'name', 'savedStep']; 
+      for (let item of items){
+         localStorage.removeItem(item);
+      }
+      //reset money
+      moneyService.reset();
+      //redirect
+      this.$router.push('/');
     }
   }
 };

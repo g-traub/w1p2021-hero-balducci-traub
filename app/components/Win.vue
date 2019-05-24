@@ -2,7 +2,7 @@
   <div class="viewGame">
     <div class="elements">
       <h1>You Win !</h1>
-      <router-link class="button" to="/">Retour au menu</router-link>
+     <button class="button" @click="backtohome">Retour au menu</button>
     </div>
   <video autoplay loop>
     <source src="../assets/video/coffre.mp4">
@@ -42,10 +42,24 @@ video{
 
 import soundEl from './soundEl.vue';
 import game from '../data.json';
+import moneyService from "../services/moneyService";
 
 export default {
     components:{
     soundEl
+  },
+  methods: {
+    backtohome(){
+      //clear storage
+      let items = ['money', 'allies','attributes', 'inventory', , 'name', 'savedStep']; 
+      for (let item of items){
+         localStorage.removeItem(item);
+      }
+      //reset money
+      moneyService.reset();
+      //redirect
+      this.$router.push('/');
+    }
   }
 };
 </script>

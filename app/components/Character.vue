@@ -301,6 +301,9 @@ h2:not(.total){
   align-items: flex-start;
   width: 100%;
 }
+.character__attributes label{
+  margin-right:1%;
+}
 .character__attributes--title{
   text-align: center;
   padding: 15px;

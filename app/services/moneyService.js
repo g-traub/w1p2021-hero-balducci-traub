@@ -11,6 +11,9 @@ class MoneyService {
   value() {
     return this.money;
   }
+  reset(){
+    this.money=10;
+  }
 }
 
 module.exports = new MoneyService();
