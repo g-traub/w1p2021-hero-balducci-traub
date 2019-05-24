@@ -15,7 +15,7 @@ export default {
     data() {
         return {
           name: localStorage.getItem('name'),
-          phrase: "Vous contrôler la vie de {nom} et vous avez volé les bijoux de la reine avec votre frère Merilvius. La veille vous partez en direction des logements de la reine, vous entrer déguisé en serviteur, une fois endormi, vous pénétrez dans ca chambre et vous subtiliser ces bijoux. Votre frère c’est fait arrété par les gardes royales lors de la cavale. Il est en jaule. Vous incarnez le héro qui va tout faire pour faire sortir son frère de prison."
+          phrase: "Vous contrôler la vie de {nom}. Vous et votre frère Merilvius avez volé les bijoux de la reine. Hier, vous mettiez votre plan à exécution. Lors de votre fuite, vous avez été pourchassé par des gardes et vous avez été séparé de votre frère ( et il portait le trésor...). Vous décider de retourner à votre point de rendez-vous et de l'attendre..."
         };
     },
     components:{
