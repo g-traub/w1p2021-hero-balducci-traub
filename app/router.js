@@ -6,6 +6,7 @@ import CharacterCustomization from  './components/Character.vue';
 import Game from './components/Game.vue';
 import Lose from './components/Lose.vue';
 import Win from './components/Win.vue';
+import Intro from './components/intro.vue';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ const router = new Router({
       path: '/character-customization',
       name: 'character customization',
       component: CharacterCustomization,
+    },
+    {
+      path: '/intro',
+      name: 'intro',
+      component: Intro,
     },
     {
       path: '/game/:id',

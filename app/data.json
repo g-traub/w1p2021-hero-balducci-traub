@@ -3,7 +3,7 @@
 		{
 			"id": "1",
 			"place": "Tente",
-			"text": "Point de rendez-vous -> attendu toute la nuit son frère est pas là. Entend au loin des cris. ",
+			"text": "Poursuivie par les gardes pendant la nuit vous avez été separé pendant la fuite. Vous vous reveillez au point de rendez-vous prévue seul. Vous entendez des cries au loin. Que fait vous ?",
 			"class": "one",
 			"image": "tente.jpg",
 			"actions": [
@@ -23,7 +23,7 @@
 		{
 			"id": "2",
 			"place": "Tente",
-			"text": "il decide d’attendre les cris se dissipent et décide de partir pour la ville.",
+			"text": "Vous decidez d’attendre que les cris se dissipent pour de partir pour la ville.",
 			"image": "tente.jpg",
 			"class": "two",
 			"actions": [
@@ -36,7 +36,7 @@
 		{
 			"id": "3",
 			"place": "Tente",
-			"text": "Vous sortez de la tente : Voit un attroupement, s’approche et entend un crieur de journal qui annonce le vol des bijoux de la reine et l’arrestation d’un des voleurs. L’autre est encore en cavale. ",
+			"text": "Vous sortez de la tente : voyez un attroupement. Vous vous approchez et entendez un crieur de journal qui annonce le vol des bijoux de la reine et l’arrestation d’un des voleurs. L’autre est encore en cavale. ",
 			"class":"three",
 			"actions": [
 				{
@@ -48,7 +48,7 @@
 		{
 			"id": "4",
 			"place": "City",
-			"text": "Petit groupe de Mandiants à l’écart et garde à l’entree de la ville. Chuchotement mandiant: Jeune homme x2.",
+			"text": "Discrètement vous arrivez à l’entrée de la ville. Vous apercevez un groupe de mendiant et des gardes. Un mendiant chuchote quelque chose.",
 			"image": "image8.jpg",
 			"class": "one",
 			"actions": [
@@ -89,7 +89,7 @@
 		{
 			"id": "6",
 			"place": "City",
-			"text": "Les gardes l’interpelle et lui demande  de payer 3 piece. Le garde arrete brusquement : Est-ce que vous êtes ...?",
+			"text": "Les gardes l’interpelle et lui demande de payer 3 pieces. Le garde vous arrete brusquement : Est-ce que vous êtes ...?",
 			"image": "image8.jpg",
 			"class": "two",
 			"actions": [
@@ -112,11 +112,11 @@
 		{
 			"id": "7",
 			"place": "City",
-			"text": "Voit un ensemble de calèches et Il observe les marchands et decide de s’infilter dans une calèche pour entrer discretement dans la ville.",
+			"text": "Vous obervez des marchands et leurs calèche et vous decidez de vous infilter dans une calèche pour entrer discretement dans la ville.",
 			"image": "image12",
 			"actions": [
 				{
-					"label": "?",
+					"label": "Continuer",
 					"to": "9"
 				}
 			]
@@ -137,7 +137,7 @@
 		{
 			"id": "9",
 			"place": "City",
-			"text": "Entrer dans la ville. {nom} retourne dans cette ville. Cette ville que lui et sont frére c’etait juré qu’après un tel larcin jamais ils n’y reviendraient. Il a besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
+			"text": "{nom} retourne dans cette ville. Cette ville que lui et sont frére c’etait juré qu’après un tel larcin jamais ils n’y reviendraient. Il a besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
 			"class": "one",
 			"image": "image6.jpg",
 			"actions": [
@@ -150,17 +150,17 @@
 		{
 			"id": "10",
 			"place": "Auberge",
-			"text": "petit description va vers le bar",
+			"text": "Vous marchez vers l'auberge tête baissé, en esperant ne pas etre reconnu. {nom} est prèt à tout pour retrouver sont frère. Il prend des risques en s'exposant de la sorte dans une auberge. ",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
-					"label": "parler au tavernier pour prendre un chambre et dormir jusqu’à la nuit",
+					"label": "Parler au tavernier pour prendre un chambre et dormir jusqu’à la nuit",
 					"to": "12",
 					"money": -2
 				},
 				{
-					"label": "S’installe et prend une cervoise. Parle à un vieux tout bourré. ",
+					"label": "S’installer et prend une cervoise. Parle à un vielle homme visiblement ivre",
 					"to": "11",
 					"money": -1
 				}
@@ -169,7 +169,7 @@
 		{
 			"id": "11",
 			"place": "Auberge",
-			"text": "Le vieux tous bourrer lui parle d’une carte (une carte de la ville a cette epoque est tres rare) et lui propose de la vendre ou de jouer pour la gagner.",
+			"text": "Le vielle homme lui parle d’une carte (une carte de la ville à cette époque est très rare) et lui propose de la vendre ou de jouer pour la gagner.",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -248,7 +248,7 @@
 		{
 			"id": "15",
 			"place": "Auberge",
-			"text": "La jour commence à ce lever, vous et le veil homme avez passé votre soirée à boire.",
+			"text": "La jour commence à ce lever, vous et le veille homme avez passé votre soirée à boire.",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -261,7 +261,7 @@
 		{
 			"id": "16",
 			"place": "Auberge",
-			"text": "Il perd et paye l’adoise du vieux homme et perde 3 pieces d’or",
+			"text": "Il perd et paye l’adoise du vieux homme et perd 3 pieces d’or",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -291,7 +291,7 @@
 		{
 			"id": "18",
 			"place": "Au abord de la prison",
-			"text": "Se rend à la prison pour preparer un plan, il observe la prison et entend des cris. Il decide de s’approcher et voit sont frère se faire toturer et regarde par le vasistas.",
+			"text": "Vous vous rendez à la prison pour préparer un plan. {nom} observe la prison et entend des cris. Il decide de s’approcher et voit sont frère se faire toturer et regarde par le vasistas.",
 			"image": "imageNuit06.jpg",
 			"class": "two",
 			"actions": [
@@ -304,7 +304,7 @@
 		{
 			"id": "19",
 			"place": "Perdu en ville",
-			"text": "Se perd dans la ville et arrive dans une ruelle sombre. Des voleurs -> combat",
+			"text": "Vous vous perdez dans la ville et vous arrivez dans une ruelle sombre. Vous tombez sur une bande de truand malicieux. L'un d'eux vous bouscule et vous barre la route. Vous vous battez contre ces truands.",
 			"image": "imageNuit05.jpg",
 			"class": "one",
 			"game": "lancé de dés 30%",
@@ -324,7 +324,7 @@
 		{
 			"id": "20",
 			"place": "Grange",
-			"text": "Se refugie dans une grange et trouve des vetement de paysan.",
+			"text": "Vous vous refugie dans une grange et vous trouvez des vetements de paysan.",
 			"image": "image5.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -337,7 +337,7 @@
 		{
 			"id": "21",
 			"place": "Perdu dans la ville",
-			"text": "Continue a chercher son chemin jusqu’au levé du soleil ",
+			"text": "Vous continuez à chercher votre chemin jusqu’au levé du soleil",
 			"image": "image9.jpg",
 			"class": "two",
 			"actions": [
@@ -350,7 +350,7 @@
 		{
 			"id": "22",
 			"place": "Perdu dans la ville",
-			"text": " Part errer dans les rues en cherchant une idée. Il arrive par hasard sur un marché et décide de demander à un marchand la direction de la prison. Il propose d’acheter l’info (5 pieces) ou de repondre à une énigme.",
+			"text": "Vous partez errer dans les rues en cherchant une idée. Vous arrivez par hasard sur un marché et vous décidez de demander à un marchand la direction de la prison. Il vous propose d’acheter l’info (5 pieces) ou de repondre à une énigme.",
 			"image": "market1.jpg",
 			"class": "fullscreen",
 			"game": "Bien gardé, difficile à trouver, difficile à garder, Je cesse dès lors que je suis découvert. (un secret)",
@@ -364,7 +364,7 @@
 		{
 			"id": "23",
 			"place": "Perdu dans la ville",
-			"text": " Part errer dans les rues en cherchant une idée. Il arrive par hasard sur un marché et décide de demander à un marchand la direction de la prison.Il propose d’acheter l’info (5 pieces) ou de repondre à une énigme.",
+			"text": "Vous partez errer dans les rues en cherchant une idée. Vous arrivez par hasard sur un marché et vous décidez de demander à un marchand la direction de la prison. Il vous propose d’acheter l’info (5 pieces) ou de repondre à une énigme.",
 			"image": "market1.jpg",
 			"class": "fullscreen",
 			"game": "Bien gardé, difficile à trouver, difficile à garder, Je cesse dès lors que je suis découvert. (un secret)",
@@ -470,7 +470,7 @@
 		{
 			"id": "29",
 			"place": "Perdu dans la ville",
-			"text": "Le garde ne se méfie pas d’un paysan et vous indique le chemin.  Vous décidez d’attendre la nuit et d’aller libérer votre frère.",
+			"text": "Le garde ne se méfie pas d’un paysan et vous indique le chemin. Vous décidez d’attendre la nuit et d’aller libérer votre frère.",
 			"image": "image7bis.jpg",
 			"class": "one",
 			"item":"prison trouvé",
@@ -484,7 +484,7 @@
 		{
 			"id": "30",
 			"place": "Perdu dans la ville",
-			"text": "Vous montrer au garde la bourse contenant les 100pièce et lui prometter en échange de son aide pour entrer dans la prison et trouver un certaine cellule.",
+			"text": "Vous montrez au garde la bourse contenant les 100 pièces et lui prometter en échange de son aide pour entrer dans la prison et trouver un certaine cellule.",
 			"image": "image10.jpg",
 			"class": "one",
 			"game": "lancé de dés 70%",
@@ -502,7 +502,7 @@
 		{
 			"id": "31",
 			"place": "Perdu dans la ville",
-			"text": "Pense avoir ce qu’il faut  pour libérer son frère.",
+			"text": "{nom} pense avoir ce qu’il faut pour libérer son frère.",
 			"image": "image10.jpg",
 			"class": "two",
 			"actions": [
@@ -520,7 +520,7 @@
 			"class": "one",
 			"actions": [
 				{
-					"label": "L’emmener dans une ruelle sombre et l’assommer pour voler son bon et  prendre sa place ",
+					"label": "L’emmener dans une ruelle sombre et l’assommer pour voler son bon et prendre sa place ",
 					"to": "31"
 				},
 				{
@@ -551,7 +551,7 @@
 		{
 			"id": "34",
 			"place": "Perdu dans la ville",
-			"text": "Pense avoir ce qu’il faut  pour libérer son frère.",
+			"text": "Pense avoir ce qu’il faut pour libérer son frère.",
 			"image": "image15.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -568,7 +568,7 @@
 		{
 			"id": "35",
 			"place": "Perdu dans la ville",
-			"text": "Après 2 jours passés dans le ville vous décider d’attendre la nuit et d’aller libérer votre frère. Vous trouverz un moyend ’ouvrir sa cellule une fois dans la prison",
+			"text": "Après 2 jours passés dans le ville vous décider d’attendre la nuit et d’aller libérer votre frère. Vous trouverz un moyen d’ouvrir sa cellule une fois dans la prison",
 			"image": "image6bis.jpg",
 			"actions": [
 				{
@@ -649,7 +649,7 @@
 		{
 			"id": "40",
 			"place": "A coté de la prison",
-			"text": "vous apercevez une femme au loin, et décidez de raconter au gardes que vous êtes à la recherche de votre femme. Ceux-ci vous indiquent la femme au loin que vous avez fait mine de ne pas voir. Vous allez à sa rencontre.",
+			"text": "Vous apercevez une femme au loin, et décidez de raconter au gardes que vous êtes à la recherche de votre femme. Ceux-ci vous indiquent la femme au loin que vous avez fait mine de ne pas voir. Vous allez à sa rencontre.",
 			"image": "imageNuit02.jpg",
 			"class": "one",
 			"game": "lancé de dés 50% de chance de sympathiser",
