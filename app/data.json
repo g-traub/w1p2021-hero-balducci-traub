@@ -153,12 +153,12 @@
 		{
 			"id": "9",
 			"place": "City",
-			"text": "{nom} retourne dans cette ville. Cette ville que lui et sont frére c’etait juré qu’après un tel larcin jamais ils n’y reviendraient. Il a besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
+			"text": "Vous retournez dans cette ville. Cette ville que vous et votre frére vous vous etiez juré qu’après un tel larcin jamais vous ne revienderiez. Vous avez besoin de reflechir et de trouver un plan pour sortir son frère de la prison",
 			"class": "one",
 			"image": "image6.jpg",
 			"actions": [
 				{
-					"label": "aller dans l’auberge",
+					"label": "Aller dans l’auberge",
 					"to": "10"
 				}
 			]
@@ -166,7 +166,7 @@
 		{
 			"id": "10",
 			"place": "Auberge",
-			"text": "Vous marchez vers l'auberge tête baissé, en esperant ne pas etre reconnu. {nom} est prêt à tout pour retrouver sont frère. Il prend des risques en s'exposant de la sorte dans une auberge. ",
+			"text": "Vous marchez vers l'auberge tête baissé, en esperant ne pas etre reconnu. Vous est prêt à tout pour retrouver votre frère. Vous prennez des risques en vous exposant de la sorte dans une auberge. ",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -195,7 +195,7 @@
 		{
 			"id": "11",
 			"place": "Auberge",
-			"text": "Le viel homme lui parle d’une carte (une carte de la ville à cette époque est très rare) et lui propose de la vendre ou de jouer pour la gagner. Il parie qu’il peut finir sa bière plus vite que vous.",
+			"text": "Le viel homme vous parle d’une carte (une carte de la ville à cette époque est très rare) et vous propose de vous la vendre ou de jouer pour la gagner.",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -308,7 +308,7 @@
 		{
 			"id": "18",
 			"place": "Au abord de la prison",
-			"text": "Vous vous rendez à la prison pour préparer un plan. {nom} observe la prison et entend des cris. Il decide de s’approcher et voit sont frère se faire toturer et regarde par le vasistas.",
+			"text": "Vous vous rendez à la prison pour préparer un plan. Vous observez la prison et vous entendez des cris. Vous decidez de vous approcher et de vous voyez votre frère se faire toturer a travers le vasistas",
 			"image": "imageNuit06.jpg",
 			"class": "two",
 			"actions": [
@@ -438,7 +438,7 @@
 		{
 			"id": "24",
 			"place": "Perdu dans la ville",
-			"text": "C'est le mendiant à qui vous avez parlé en dehors de la ville! Il met quelques secondes a vous reconnaitre dans cet acoutrement et vous parle. Il dit que comme promi il va vous rendre la pareille : il vous parle d’une porte cachée au fin-fond de la ville , derrière laquelle se cacherait un trésor. Il vous guide jusqu’à elle puis s’en va. Elle est fermement vérouillée.",
+			"text": "C'est le mendiant à qui vous avez parlé à l'extérieur de la ville. Il met quelques secondes à vous reconnaitre dans cet acoutrement et vous parle. Il dit que comme promi il va vous rendre la pareille : il vous parle d’une porte cachée au fin-fond de la ville , derrière laquelle se cacherait un trésor. Il vous guide jusqu’à elle puis s’en va. Elle est fermement vérouillée.",
 			"image": "market.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -465,7 +465,7 @@
 		{
 			"id": "26",
 			"place": "Perdu dans la ville",
-			"text": "la porte s’ouvre... devant vous un tas de pièces d’or et un enfant qui vous regarde interloqué. Il vous demande si vous demande si vous êtes un ami de son père et vous répondez que oui c’est lui qui vous a demander de passer. Vous prenez les pièces d’or et partez, avant que l’enfant n’ai le temps de comprendre ce qu’il se passe.",
+			"text": "La porte s’ouvre, devant vous un tas de pièces d’or et un enfant qui vous regarde interloqué. Il vous demande si vous êtes un amis de son père et vous répondez que oui ! C’est lui qui vous a demander de passer. Vous prenez les pièces d’or et partez, avant que l’enfant n’ai le temps de comprendre ce qu’il se passe.",
 			"image": "market.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -555,7 +555,7 @@
 		{
 			"id": "31",
 			"place": "Perdu dans la ville",
-			"text": "{nom} pense avoir ce qu’il faut pour libérer son frère.",
+			"text": "Vous pensez avoir ce qu’il faut pour libérer son frère.",
 			"image": "image10.jpg",
 			"class": "two",
 			"actions": [
@@ -568,7 +568,7 @@
 		{
 			"id": "32",
 			"place": "Perdu dans la ville",
-			"text": "Sur le chemin de la prison un paysan l’interpelle et lui demande le chemin de la prison, lui explique qu’il s’appelle machin et qu’il va voir son fils, il lui montre son bon de visite.",
+			"text": "Sur le chemin de la prison un paysan vous interpelle et vous demande le chemin de la prison, il vous explique qu’il s’appelle Lancelot et qu’il va voir son fils, il lui montre son bon de visite.",
 			"image": "image6.jpg",
 			"class": "one",
 			"actions": [
@@ -609,7 +609,7 @@
 		{
 			"id": "34",
 			"place": "Perdu dans la ville",
-			"text": "Vous pensez avoir ce qu’il faut pour libérer son frère.",
+			"text": "Vous pensez avoir ce qu’il faut pour libérer votre frère.",
 			"image": "image15.jpg",
 			"class": "fullscreen",
 			"actions": [
@@ -622,7 +622,7 @@
 		{
 			"id": "35",
 			"place": "Perdu dans la ville",
-			"text": "Après 2 jours passés dans le ville vous décidez d’attendre la nuit et d’aller libérer votre frère. Vous trouverz un moyen d’ouvrir sa cellule une fois dans la prison",
+			"text": "Après 2 jours passés dans le ville vous décider d’attendre la nuit et d’aller libéré votre frère. Vous trouverez un moyen d’ouvrir ca cellule une fois dans la prison",
 			"image": "image6bis.jpg",
 			"actions": [
 				{
@@ -717,7 +717,7 @@
 		{
 			"id": "40",
 			"place": "A coté de la prison",
-			"text": "Vous apercevez une femme au loin, et décidez de raconter au gardes que vous êtes à la recherche de votre femme. Ceux-ci vous indiquent la femme au loin que vous avez fait mine de ne pas voir. Vous allez à sa rencontre.",
+			"text": "Vous apercevez une femme au loin, et vous décidez de raconter au gardes que vous êtes à la recherche de votre femme. Ceux-ci vous indiquent la femme au loin que vous avez fait mine de ne pas voir. Vous allez à sa rencontre.",
 			"image": "imageNuit02.jpg",
 			"class": "one",
 			"game": "lancé de dés 50% de chance de sympathiser",
@@ -735,7 +735,7 @@
 		{
 			"id": "41",
 			"place": "A coté de la prison",
-			"text": "la femme vous regarde avec méfiance et pars dans la direction opposée ; en voyant le comportement de la femme les gardes viennent à votre rencontre ; mais vous avez beaucoup d’avance et vous les semez",
+			"text": "La femme vous regarde avec méfiance et pars dans la direction opposée ; en voyant le comportement de la femme les gardes viennent à votre rencontre ; mais vous avez beaucoup d’avance et vous les semez",
 			"image": "imageNuit02.jpg",
 			"class": "two",
 			"actions": [
@@ -765,7 +765,7 @@
 		{
 			"id": "43",
 			"place": "A coté de la prison",
-			"text": "elle voit la carte que vous avez dans la main et vous apprend que c’est une de celles qu’elle a dessiné, Elle vous explique qu’elle en a dessiner plein et vous en vous voyant intéresser elle vous amène a la bibliothèque de la viulle",
+			"text": "Elle voit la carte que vous avez dans la main et vous apprend que c’est une de celles qu’elle a dessiné. Elle vous explique qu’elle en a dessiné plein et vous en vous voyant intéresser elle vous amène a la bibliothèque de la viulle",
 			"image": "image14.jpg",
 			"class": "two",
 			"game": "lancé de dés 80% de chance de trouver le plan de la prison",
@@ -780,7 +780,7 @@
 		{
 			"id": "44",
 			"place": "A coté de la prison",
-			"text": "Vousn'avez pas dormi de la nuit, vous decidez de dormir dans l’auberge la journée.",
+			"text": "Vous n'avez pas dormi de la nuit, vous decidez de dormir dans l’auberge la journée.",
 			"image": "image3.jpg",
 			"class": "one",
 			"actions": [
@@ -797,7 +797,7 @@
 		{
 			"id": "45",
 			"place": "A coté de la prison",
-			"text": "“nom du perso” attend la nuit et prépare son entrée dans la prison. Sur le plan figure une petite entrée par les égouts de la ville. Il décide de s’y infilter durant la nuit.",
+			"text": "Vous attendez la nuit et vous préparez votre entrée dans la prison. Sur le plan figure une petite entrée par les égouts de la ville. Vous decidez donc de vous infilter durant la nuit.",
 			"image": "image1.jpg",
 			"class": "one",
 			"actions": [
@@ -857,7 +857,7 @@
 		{
 			"id": "49",
 			"place": "A l'interieur de la prison",
-			"text": "Vous entrez dans la prison , vous attendez que les gardes du poste principal part en ronde pour voler les clefs de la cellules de votre frère. Problème quel jeux de clefs prendre. Plusieurs sont accroché. Vous ne pouvez pas toute les prendrent sous peine d’etre d’eveiller les soupcons. Vous en attraper une pair de clef au hasard et vous prenez une tenu de garde pour vous deguiser. Vous prenez votre tour de garde et regardez discretement dans chaque cellules pour trouver votre frère. Mais vous ne parvenez a le trouver.",
+			"text": "Vous entrez dans la prison , vous attendez que les gardes du poste principal part en ronde pour voler les clefs de la cellules de votre frère. Problème quel jeux de clefs prendre. Plusieurs sont accroché. Vous ne pouvez pas toute les prendrent sous peine d’eveiller les soupcons. Vous en attraper une pair de clef au hasard et vous prenez une tenu de garde pour vous deguiser. Vous prenez votre tour de garde et regardez discretement dans chaque cellules pour trouver votre frère. Mais vous ne parvenez a le trouver.",
 			"image": "prison.png",
 			"class": "one",
 			"actions": [
@@ -874,7 +874,7 @@
 		{
 			"id": "50",
 			"place": "A l'interieur de la prison",
-			"text": "Vous repartez quand soudain un autre garde arrive dans votre direction. “Il vont me reconnaitre, reflechis”",
+			"text": "Vous repartez quand soudain un autre garde arrive dans votre direction. \"Il vont me reconnaitre, reflechis\"",
 			"image": "prison.png",
 			"class": "two",
 			"actions": [
@@ -895,7 +895,7 @@
 		{
 			"id": "51",
 			"place": "A l'interieur de la prison",
-			"text": "Vous trouvez la salle des archives ouverte et vide. “Parfait”  Vous chercher le registre de la prison ou se trouve le numero de cellule de votre frère.",
+			"text": "Vous trouvez la salle des archives ouverte et vide. \"Parfait !!!\". Vous chercher le registre de la prison ou se trouve le numero de cellule de votre frère.",
 			"image": "image4.jpg",
 			"class": "one",
 			"actions": [
@@ -908,7 +908,7 @@
 		{
 			"id": "52",
 			"place": "A l'interieur de la prison",
-			"text": "Vous vous cachez dans une cellule vide et  vous claquez la porte.",
+			"text": "Vous vous cachez dans une cellule vide et vous claquez la porte.",
 			"image": "image4.jpg",
 			"class": "two",
 			"game": "lancé de dé : 80% de chance que la paire de clef que vous avez ne correspond pas a cette porte",
@@ -939,12 +939,12 @@
 		{
 			"id": "54",
 			"place": "A l'interieur de la prison",
-			"text": "“Hey bonsoir l’amis ton tour de garde se passe bien?” Il vous repond “Trés bien les detenus sont calme ce soir. Mais dit moi tu es nouveau au poste de garde ?” “Oui je suis nouveau j’ai pris mon poste ce soir” “ok fait attantion au bout du couloir un detenu s’amuse a faire peur au petit nouveau ”Vous le remerciez et continuez votre route. Vous continuez à chercher, et vous trouvez enfin la celulle de votre frère. Vous testez les differente clefs une a une mais aucune n’ouvre la porte.",
+			"text": "\"Hey bonsoir l’amis ton tour de garde se passe bien?\" Il vous repond \"Trés bien les detenus sont calme ce soir. Mais dit moi tu es nouveau au poste de garde ?\" \"Oui je suis nouveau j’ai pris mon poste ce soir\" \"ok fait attantion au bout du couloir un detenu s’amuse a faire peur au petit nouveau\" Vous le remerciez et continuez votre route. Vous continuez à chercher, et vous trouvez enfin la celulle de votre frère. Vous testez les differente clefs une à une mais aucune n’ouvre la porte.",
 			"image": "prison.png",
 			"class": "one",
 			"actions": [
 				{
-					"label": "Vous aller  chercher discrétement une autre paire de clefs",
+					"label": "Vous aller chercher discrétement une autre paire de clefs",
 					"to": "58"
 				},
 				{
@@ -974,7 +974,7 @@
 		{
 			"id": "58",
 			"place": "A l'interieur de la prison",
-			"text": "Par miracle aucun garde ne c’est rendu compte de vos allez et venue. Vous arrivez enfin à trouvez la clef de la cellule. Discretement vous arrivez à faire sortir votre frère de la prison.",
+			"text": "Par miracle aucun garde ne c’est rendu compte de vos allez et venue. Vous arrivez enfin à trouvez la clef de la cellule. Discrètement vous arrivez à faire sortir votre frère de la prison.",
 			"image": "image4.jpg",
 			"class": "two",
 			"actions": [
