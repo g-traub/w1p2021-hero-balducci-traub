@@ -32,9 +32,6 @@
 <style scoped>
 .viewGame{
   background-image: url('../assets/img/bghome.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .hero{
   display: flex;
@@ -61,6 +58,7 @@ footer{
  position: absolute;
  bottom: 5px;
  left: 5px;
+ z-index:0;
 }
 footer a{
  text-decoration: none;

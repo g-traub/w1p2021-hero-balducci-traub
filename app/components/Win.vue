@@ -4,7 +4,7 @@
       <h1>You Win !</h1>
       <router-link class="button" to="/">Retour au menu</router-link>
     </div>
-    <video autoplay loop>
+  <video autoplay loop>
     <source src="../assets/video/coffre.mp4">
   </video>
   <soundEl></soundEl>
@@ -18,6 +18,7 @@
   align-items: center;
 }
 .elements{
+  z-index:4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +34,7 @@ video{
   height: 100vh;
   object-fit: cover;
   top: 0;
-  z-index: -1;
+  z-index: 3;
 }
 </style>
 
@@ -43,18 +44,8 @@ import soundEl from './soundEl.vue';
 import game from '../data.json';
 
 export default {
-  data() {
-    return {
-      win: this.getWin()
-    }
-  },
     components:{
     soundEl
-  },
-  methods: {
-    getWin(){
-      return game.wins.find(win => win.id === this.$route.params.id)
-    }
   }
 };
 </script>
