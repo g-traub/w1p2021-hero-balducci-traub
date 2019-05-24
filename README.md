@@ -25,10 +25,10 @@ URL du site : https://infallible-tereshkova-e192e8.netlify.com/
 | Routing | Une route dont l'`id` varie permet d'afficher les différentes étapes du jeu |oui|
 | Routing | Lorsqu'on recharge la page (`Ctrl + R`), on se trouve toujours à la même étape |oui|
 | Transitions | Chaque page apparaît grâce à une transition fluide (la complexité de la transition n'est pas prise en compte ici) |oui|
-| Transitions | Les transitions internes au jeu (d'une étape à une autre) et externes (intro, fin...) sont différentes | - |
-| État | Le choix du personnage et/ou de ses caractéristiques impacte l'aventure au moins une fois. **Indiquez ici comment succintement.** |oui|
-| État | Une décision ou un événement aléatoire survenu pendant l'aventure a un impact sur la suite, au moins une fois. **Indiquez ici comment succintement.** |oui|
-| État | Le choix du personnage et/ou ce qu'il s'est passé pendant l'aventure impactent l'écran de fin. **Indiquez ici comment succintement.** |oui|
+| Transitions | Les transitions internes au jeu (d'une étape à une autre) et externes (intro, fin...) sont différentes |oui|
+| État | Le choix du personnage et/ou de ses caractéristiques impacte l'aventure au moins une fois. **OUI par exemple si le héros choisit d'attribuer à son personnage plus de points de charisme, il aura plus de chances de réussite lors des jeux aléatoires** |oui|
+| État | Une décision ou un événement aléatoire survenu pendant l'aventure a un impact sur la suite, au moins une fois. **OUI notamment pour les jeux aléatoires (réussite ou échec) mais aussi en fonction de l'action menée l'histoire est différente** |oui|
+| État | Le choix du personnage et/ou ce qu'il s'est passé pendant l'aventure impactent l'écran de fin. **Oui le joueur retrouvera son frère ou alors il sera tué ou arrêté** |oui|
 | État | Au moins un service (classe de type `GameService`) est utilisé |oui|
 | Sauvegarde | Lorsqu'on recharge la page (`Ctrl + R`), le personnage, ses caractéristiques, les choix du joueur et tout le reste sont rétablis |oui|
 | Sauvegarde | Lorsqu'on quitte le jeu et qu'on revient plus tard à la page d'accueil (sur le même navigateur), il est possible de reprendre l'aventure où on l'avait laissée |oui|
