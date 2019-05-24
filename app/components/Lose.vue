@@ -1,5 +1,5 @@
 <template>
-  <div class="lose">
+  <div class="lose" :class="(lose.id === '1') ? 'arrested' : 'dead'">
     <div class="elements">
       <h1>{{lose.title}}</h1>
       <p>{{lose.text}}</p>
@@ -41,15 +41,16 @@ p{
   margin-top: 100px;
 }
 .button{
-  cursor: pointer;
-  padding: 1.2rem 5rem;
-  border-radius: 15px;
-  background-image: linear-gradient(#9E9E9E, #FFFFFF);
+  background: linear-gradient(#9E9E9E, #FFFFFF);
   margin: 2rem auto;
   color: #555555;
   font-size: 1.3rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.lose.dead{
+  background: url('../assets/img/tachessang.png') #000 center center / contain no-repeat;
+}
+.lose.arrested{
+  background: url('../assets/img/barreauxprison.png')#000  center center / contain no-repeat;
 }
 </style>
 

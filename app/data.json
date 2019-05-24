@@ -103,7 +103,7 @@
 							"to": "10"
 						},
 						"false": {
-							"to": "../lose"
+							"to": "../lose/1"
 						}
 					}
 				}
@@ -292,7 +292,7 @@
 			"id": "18",
 			"place": "Au abord de la prison",
 			"text": "Se rend à la prison pour preparer un plan, il observe la prison et entend des cris. Il decide de s’approcher et voit sont frère se faire toturer et regarde par le vasistas.",
-			"image": "imageNuit",
+			"image": "imageNuit06.jpg",
 			"class": "two",
 			"actions": [
 				{
@@ -495,7 +495,7 @@
 				},
 				{
 					"label": "Echec",
-					"to": "../lose"
+					"to": "../lose/1"
 				}
 			]
 		},
@@ -620,7 +620,7 @@
 			"actions": [
 				{
 					"label": "Arreter",
-					"to": "../lose"
+					"to": "../lose/1"
 				},
 				{
 					"label": "Gagne",
@@ -642,7 +642,7 @@
 				},
 				{
 					"label": "perdu",
-					"to": "../lose"
+					"to": "../lose/1"
 				}
 			]
 		},
@@ -847,7 +847,7 @@
 			"actions": [
 				{
 					"label": "Perdu",
-					"to": "../lose"
+					"to": "../lose/1"
 				},
 				{
 					"label": "Gagner",
@@ -864,7 +864,7 @@
 			"actions": [
 				{
 					"label": "Perdu",
-					"to": "../lose"
+					"to": "../lose/1"
 				}
 			]
 		},
@@ -895,7 +895,7 @@
 			"actions": [
 				{
 					"label": "Perdu",
-					"to": "../lose"
+					"to": "../lose/1"
 				},
 				{
 					"label": "Gagner",
@@ -919,13 +919,13 @@
 		{
 			"id": "59",
 			"place": "A l'interieur de la prison",
-			"text": "Vous courez avec la barre et vous vous battez contre les gardes mais ils sont bien trop nombreux. Vous vous fait arretez",
+			"text": "Vous courez avec la barre et vous vous battez contre les gardes mais ils sont bien trop nombreux. Vous vous faite tuer",
 			"image": "image4.jpg",
 			"class": "two",
 			"actions": [
 				{
 					"label": "Perdu",
-					"to": "../lose"
+					"to": "../lose/2"
 				}
 			]
 		}
@@ -940,7 +940,7 @@
 		{
 			"id": "2",
 			"title": "Game Over",
-			"text": "Vous avez été tuer",
+			"text": "Vous avez été tué",
 			"image": "image"
 		}
 	]
