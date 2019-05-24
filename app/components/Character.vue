@@ -109,6 +109,7 @@
 
 <script>
 import attributesService from "../services/attributesService";
+import soundEl from './soundEl.vue';
 
 export default {
   data() {
@@ -122,6 +123,9 @@ export default {
       total: 15,
       attributes: attributesService.value()
     };
+  },
+    components:{
+    soundEl
   },
   computed:{
     attributesNodes: function (){
