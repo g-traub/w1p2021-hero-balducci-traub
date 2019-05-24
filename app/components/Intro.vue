@@ -1,7 +1,7 @@
 <template>
   <div class="viewGame">
         <p>{{phrase.replace('{nom}', name)}}</p>
-        <router-link class="button" to="game/">Commencer</router-link>
+        <router-link class="button" to="/game/1">Commencer</router-link>
   <soundEl></soundEl>
   </div> 
 </template>
