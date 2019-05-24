@@ -102,7 +102,7 @@
       </aside>
     </div>
     <div>
-      <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('/game/1')}" class="button" >Commencer votre aventure</button>
+      <button :class="(total > 0 || name === '') ? 'inactive' : '' " :disabled="(total > 0 || name === '')" @click="function() {setAttributes();setName();redirect('../intro')}" class="button" >Commencer votre aventure</button>
     </div>
     <soundEl></soundEl>
   </div>

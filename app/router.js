@@ -6,7 +6,7 @@ import CharacterCustomization from  './components/Character.vue';
 import Game from './components/Game.vue';
 import Lose from './components/Lose.vue';
 import Win from './components/Win.vue';
-import Intro from './components/intro.vue';
+import Intro from './components/Intro.vue';
 
 Vue.use(Router);
 
