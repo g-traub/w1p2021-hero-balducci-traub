@@ -173,15 +173,19 @@
 				{
 					"label": "Parler au tavernier pour prendre un chambre et dormir jusqu’à la nuit",
 					"to": "12",
-					"money": -2,
+					"effects": {
+						"money": -2
+					},
 					"need": {
-						"money": 3
+						"money": 2
 					}
 				},
 				{
 					"label": "S’installer et prend une cervoise. Parle à un vielle homme visiblement ivre",
 					"to": "11",
-					"money": -1,
+					"effects": {
+						"money": -1
+					},
 					"need": {
 						"money": 1
 					}
@@ -208,10 +212,7 @@
 							}
 						},
 						"false": {
-							"to": "16",
-							"effects": {
-								"money": -3
-							}
+							"to": "16"
 						}
 					}
 				},
@@ -283,13 +284,17 @@
 		{
 			"id": "16",
 			"place": "Auberge",
-			"text": "Il perd et paye l’adoise du vieux homme et perd 3 pieces d’or",
+			"text": "Vous avez perdez et vous devez payez l’adoise du vieux homme qui est de 5 pièces d’or",
 			"image": "interieur.jpg",
 			"class": "fullscreen",
 			"actions": [
 				{
-					"label": "Continuer",
+					"label": "Payer",
+					"effects": {
+						"money": -3
+					},
 					"to": "17"
+					
 				}
 			]
 		},
