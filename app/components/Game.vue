@@ -155,7 +155,6 @@ export default {
           attributesService.process()
         );
         this.$refs[action.game][0].classList.add(result);
-        console.log(result);
         localStorage.setItem("savedStep", action.gameDetails[result].to);
         setTimeout(() => this.redirect(action.gameDetails[result].to), 3000);
         for (let effectName in action.gameDetails[result].effects) {
@@ -225,7 +224,20 @@ export default {
          }, 2000);
       }
     }
-  }
+  },
+  updated(){
+      if (this.step.checkpoint){
+        console.log('checkpoint');
+        let checkedState = 
+        {"savedStep": this.step.id, 
+        "money": this.money, 
+        "allies": this.allies, 
+        "inventory": this.inventory, 
+        "milestones": this.milestones};
+
+        localStorage.setItem("checkpoint", JSON.stringify(checkedState));
+      }
+    }
 };
 </script>
 <style lang="scss" scoped>

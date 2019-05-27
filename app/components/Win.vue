@@ -51,7 +51,7 @@ export default {
   methods: {
     backtohome(){
       //clear storage
-      let items = ['money', 'allies','attributes', 'inventory', , 'name', 'savedStep']; 
+      let items = ['money', 'allies','attributes', 'inventory', 'name', 'savedStep', 'checkpoint']; 
       for (let item of items){
          localStorage.removeItem(item);
       }

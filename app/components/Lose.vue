@@ -5,7 +5,7 @@
       <p>{{lose.text}}</p>
     </div>
     <div class="buttoncontent">
-      <router-link disabled class="button" to="#">Dernier checkpoint</router-link>
+      <button class="button" @click="loadCheckpoint">Dernier checkpoint</button>
       <button class="button" @click="backtohome">Retour au menu</button>
     </div>
     <soundEl></soundEl>
@@ -74,7 +74,7 @@ export default {
     },
     backtohome(){
       //clear storage
-      let items = ['money', 'allies','attributes', 'inventory', , 'name', 'savedStep']; 
+      let items = ['money', 'allies','attributes', 'inventory', 'name', 'savedStep', 'checkpoint']; 
       for (let item of items){
          localStorage.removeItem(item);
       }
@@ -82,6 +82,16 @@ export default {
       moneyService.reset();
       //redirect
       this.$router.push('/');
+    },
+    loadCheckpoint(){
+      let local = JSON.parse(localStorage
+        .getItem('checkpoint'));
+      this.money = local.money;
+      this.allies = local.allies;
+      this.inventory = local.inventory;
+      this.milestones = local.milestones;
+      this.savedStep = local.savedStep;
+      this.$router.push(`../game/${this.savedStep}`);
     }
   }
 };

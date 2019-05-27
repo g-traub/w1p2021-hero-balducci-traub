@@ -7,18 +7,19 @@
         <br/>
         <h2>L'histoire dont vous êtes le héro</h2>
       </div>
-      <router-link 
-      v-if="!savedState || savedState === '1' ? true : false"
-      class="button" 
-      to="/character-customization">
-      Start
-      </router-link>
-      <button
-      v-else
-      class="button"
-      @click="redirect(`game/${savedState}`)">
-      Continuer
-      </button>
+      <div class="container">
+        <button 
+        class="button"
+        @click="clearStorage();redirect('/character-customization')">
+        Nouvelle partie
+        </button>
+        <button
+        v-if="savedState && savedState !== '1' ? true : false"
+        class="button"
+        @click="redirect(`game/${savedState}`)">
+        Continuer
+        </button>
+      </div>
       <br/>
     </div>
     <footer>
@@ -32,6 +33,12 @@
 <style scoped>
 .viewGame{
   background-image: url('../assets/img/bghome.jpg');
+}
+.container{
+  margin: 10% auto;
+}
+.container .button{
+  margin: 1rem auto;
 }
 .hero{
   display: flex;
@@ -69,6 +76,7 @@ footer a{
 
 <script>
 import soundEl from './soundEl.vue';
+import moneyService from "../services/moneyService";
 
 export default {
   data() {
@@ -82,6 +90,14 @@ export default {
   methods: {
     redirect: function(url){
       this.$router.push(url);
+    },
+    clearStorage: function(){
+      let items = ['money', 'allies','attributes', 'inventory', 'name', 'savedStep', 'checkpoint']; 
+      for (let item of items){
+         localStorage.removeItem(item);
+      }
+      //reset money
+      moneyService.reset();
     }
   }
 };

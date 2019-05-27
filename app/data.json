@@ -48,6 +48,7 @@
 			"text": "Discrètement vous arrivez à l’entrée de la ville. Vous apercevez un groupe de mendiants et des gardes. Un mendiant chuchote quelque chose.",
 			"image": "image8.jpg",
 			"class": "one",
+			"checkpoint": true,
 			"actions": [
 				{
 					"label": "Aller vers la porte",
@@ -291,6 +292,7 @@
 			"text": "Vous sortez de l'auberge",
 			"image": "imageNuit04.jpg",
 			"class": "one",
+			"checkpoint": true,
 			"actions": [
 				{
 					"label": "Vous rendre à la prison",
@@ -887,6 +889,7 @@
 			"text": "Vous arrivez devant la prison et avancez vers la porte.",
 			"image": "imageNuit06.jpg",
 			"class": "one",
+			"checkpoint": true,
 			"actions": [
 				{
 					"label": "Continuer",
